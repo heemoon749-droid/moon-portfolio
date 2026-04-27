@@ -1,0 +1,285 @@
+{
+  "color": {
+    "white": "#f8f9fa",
+    "pureWhite": "#ffffff",
+    "primary500": "#e07a5f",
+    "primary600": "#ca6e56",
+    "primary100": "#f8f2f0",
+    "secondary50": "#f6f6f6",
+    "secondary100": "#ececef",
+    "secondary200": "#e2e2e6",
+    "secondary300": "#c3c4cc",
+    "secondary400": "#a5a6b4",
+    "secondary500": "#787a8b",
+    "secondary600": "#5a5c74",
+    "secondary700": "#3d405b",
+    "secondary800": "#2e3044",
+    "secondary900": "#252637",
+    "blueGrayDark": {
+      "b-gray100": "#f7fafc",
+      "b-gray200": "#edf2f7",
+      "b-gray300": "#e2e8f0",
+      "b-gray400": "#cbd5e0",
+      "b-gray500": "#a0aec0",
+      "b-gray600": "#718096",
+      "b-gray700": "#4a5568",
+      "b-gray800": "#2d3748",
+      "b-gray900": "#1a202c"
+    },
+    "hue": {
+      "red": {
+        "red100": "#fff5f5",
+        "red200": "#fed9d7",
+        "red300": "#feb8b2",
+        "red400": "#ffa08f",
+        "red500": "#f57865",
+        "red600": "#e7372d",
+        "red700": "#c53c30",
+        "red800": "#9b372c",
+        "red900": "#74312a"
+      },
+      "orange": {
+        "orange100": "#fffaf0",
+        "orange200": "#feebc8",
+        "orange300": "#fbd38d",
+        "orange400": "#f6ad55",
+        "orange500": "#ed8936",
+        "orange600": "#dd6b20",
+        "orange700": "#c05621",
+        "orange800": "#9c4221",
+        "orange900": "#7b341e"
+      },
+      "yellow": {
+        "yellow100": "#fff9e1",
+        "yellow200": "#fff2c1",
+        "yellow300": "#fcd53f",
+        "yellow400": "#ffca00",
+        "yellow500": "#e3bf37",
+        "yellow600": "#d0b95e",
+        "yellow700": "#ac9129",
+        "yellow800": "#887115",
+        "yellow900": "#64520b"
+      },
+      "green": {
+        "green100": "#efffef",
+        "green200": "#caf8cb",
+        "green300": "#a3e4a6",
+        "green400": "#6ad06f",
+        "green500": "#4caf50",
+        "green600": "#1da323",
+        "green700": "#26812a",
+        "green800": "#246627",
+        "green900": "#094a0b"
+      },
+      "teal": {
+        "teal100": "#e6fffa",
+        "teal200": "#b2f5ea",
+        "teal300": "#81e6d9",
+        "teal400": "#4fd1c5",
+        "teal500": "#38b2ac",
+        "teal600": "#319795",
+        "teal700": "#2c7a7b",
+        "teal800": "#285e61",
+        "teal900": "#234e52"
+      },
+      "blue": {
+        "blue100": "#ebf9ff",
+        "blue200": "#c8eeff",
+        "blue300": "#8cd3f3",
+        "blue400": "#4fc3f7",
+        "blue500": "#0091ea",
+        "blue600": "#0077c2",
+        "blue700": "#2879aa",
+        "blue800": "#295b7a",
+        "blue900": "#204156"
+      },
+      "indigo": {
+        "indigo100": "#ebf4ff",
+        "indigo200": "#c3dafe",
+        "indigo300": "#a3bffa",
+        "indigo400": "#7f9cf5",
+        "indigo500": "#667eea",
+        "indigo600": "#5a67d8",
+        "indigo700": "#4c51bf",
+        "indigo800": "#434190",
+        "indigo900": "#3c366b"
+      },
+      "purple": {
+        "purple100": "#faf5ff",
+        "purple200": "#e9d8fd",
+        "purple300": "#d6bcfa",
+        "purple400": "#b794f4",
+        "purple500": "#9f7aea",
+        "purple600": "#805ad5",
+        "purple700": "#6b46c1",
+        "purple800": "#553c9a",
+        "purple900": "#44337a"
+      },
+      "pink": {
+        "pink100": "#fff5f7",
+        "pink200": "#fed7e2",
+        "pink300": "#fbb6ce",
+        "pink400": "#f687b3",
+        "pink500": "#ed64a6",
+        "pink600": "#d53f8c",
+        "pink700": "#b83280",
+        "pink800": "#97266d",
+        "pink900": "#702459"
+      }
+    }
+  },
+  "fontSize": {
+    "caption": 12,
+    "sub": 14,
+    "body-s": 16,
+    "body-m": 20,
+    "heading-m": 24
+  },
+  "fontWeight": {
+    "400": 400,
+    "500": 500,
+    "600": 600
+  },
+  "typography": {
+    "Sub-normal": {
+      "fontFamily": "Pretendard",
+      "style": "Regular",
+      "fontSize": "font-size/sub",
+      "fontWeight": "font-weight/font-weight-400",
+      "lineHeight": 1.4,
+      "letterSpacing": -2
+    },
+    "Sub-Bold": {
+      "fontFamily": "Pretendard",
+      "style": "SemiBold",
+      "fontSize": "font-size/sub",
+      "fontWeight": "font-weight/font-weight-600",
+      "lineHeight": 1.4,
+      "letterSpacing": -2
+    },
+    "Heading M": {
+      "fontFamily": "Pretendard",
+      "style": "SemiBold",
+      "fontSize": "font-size/heading-m",
+      "fontWeight": "font-weight/font-weight-600",
+      "lineHeight": 1.3,
+      "letterSpacing": -2
+    },
+    "BodyM-bold": {
+      "fontFamily": "Pretendard",
+      "style": "SemiBold",
+      "fontSize": "font-size/body-m",
+      "fontWeight": "font-weight/font-weight-600",
+      "lineHeight": 1.0,
+      "letterSpacing": -2
+    },
+    "Bodys-normal": {
+      "fontFamily": "Pretendard",
+      "style": "Regular",
+      "fontSize": "font-size/body-s",
+      "fontWeight": "font-weight/font-weight-400",
+      "lineHeight": 1.5,
+      "letterSpacing": -2
+    },
+    "Bodys-bold": {
+      "fontFamily": "Pretendard",
+      "style": "SemiBold",
+      "fontSize": "font-size/body-s",
+      "fontWeight": "font-weight/font-weight-600",
+      "lineHeight": 1.5,
+      "letterSpacing": -2
+    },
+    "caption": {
+      "fontFamily": "Pretendard",
+      "style": "Medium",
+      "fontSize": "font-size/caption",
+      "fontWeight": "font-weight/font-weight-500",
+      "lineHeight": 1.6,
+      "letterSpacing": -2
+    }
+  },
+  "effect": {
+    "blur-effect": {
+      "effects": [
+        { "type": "INNER_SHADOW", "color": "#FFFFFFCC", "offset": [1, 1], "radius": 2, "spread": 1 },
+        { "type": "DROP_SHADOW", "color": "#FFFFFF", "offset": [-4, -4], "radius": 12, "spread": 0 },
+        { "type": "DROP_SHADOW", "color": "#3D405B08", "offset": [4, 4], "radius": 12, "spread": 0 }
+      ],
+      "css": "box-shadow: -4px -4px 12px 0px #FFFFFF, 4px 4px 12px 0px rgba(61,64,91,0.03), inset 1px 1px 2px 1px rgba(255,255,255,0.8)"
+    },
+    "gray-shadow": {
+      "effects": [
+        { "type": "DROP_SHADOW", "color": "#00000012", "offset": [5, 5], "radius": 20, "spread": 0 }
+      ],
+      "css": "box-shadow: 5px 5px 20px 0px rgba(0,0,0,0.07)",
+      "usage": "일반 카드 그레이 그림자"
+    },
+    "coral-shadow": {
+      "effects": [
+        { "type": "DROP_SHADOW", "color": "#FFFFFFF2", "offset": [-20, -20], "radius": 40, "spread": 0 },
+        { "type": "DROP_SHADOW", "color": "#E07A5F14", "offset": [20, 20], "radius": 40, "spread": 0 }
+      ],
+      "css": "box-shadow: -20px -20px 40px 0px rgba(255,255,255,0.95), 20px 20px 40px 0px rgba(224,122,95,0.08)",
+      "usage": "코랄 계열 카드 그림자 (card-shadow와 동일)"
+    }
+  },
+  "gradient": {
+    "gradiant-linear": {
+      "type": "linear",
+      "css": "linear-gradient(166.675deg, rgba(255,255,255,0.7) 0%, rgba(248,249,250,0.4) 100%)",
+      "usage": "카드 글라스모피즘 배경 오버레이"
+    },
+    "gradiant-coral02": {
+      "type": "radial",
+      "css": "radial-gradient(circle at center, rgba(224,122,95,0.2) 0%, rgba(224,122,95,0) 70%)",
+      "usage": "코랄 방사형 - 약한 강조 (opacity 0.2)"
+    },
+    "gradiant-coral07": {
+      "type": "radial",
+      "css": "radial-gradient(circle at center, rgba(224,122,95,0.6) 0%, rgba(224,122,95,0) 70%)",
+      "usage": "코랄 방사형 - 강한 강조 (opacity 0.6)"
+    },
+    "gradiant-gray": {
+      "type": "radial",
+      "css": "radial-gradient(ellipse at center, rgba(243,243,243,1) 0%, rgba(232,232,232,1) 100%)",
+      "usage": "그레이 방사형 - 중립 배경"
+    }
+  },
+  "gap": {
+    "gap-s": 8,
+    "gap-large": 24
+  },
+  "spacing": {
+    "spacing-04": 4,
+    "spacing-08": 8,
+    "spacing-12": 12,
+    "spacing-16": 16,
+    "spacing-24": 24,
+    "spacing-group-mo": 28,
+    "spacing-group-pc": 40,
+    "spacing-section-mo": 52,
+    "spacing-section-pc": 80
+  },
+  "borderRadius": {
+    "radius-04": 4,
+    "radius-08": 8,
+    "radius-16": 16,
+    "radius-24": 24,
+    "radius-9999": 9999
+  },
+  "borderWidth": {
+    "bd-01": 1,
+    "bd-02": 2,
+    "bd-04": 4
+  },
+  "sizing": {
+    "sz-24": 24,
+    "sz-48": 48,
+    "sz-96": 96,
+    "sz-1280": 1280,
+    "sz-100%": 9999
+  },
+  "opacity": {
+    "dimmed": 0.3
+  }
+}

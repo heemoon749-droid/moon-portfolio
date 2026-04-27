@@ -120,7 +120,7 @@
           '<button class="cmp-floating-nav__btn" type="button" aria-label="홈" onclick="location.href=\'index.html\'">' +
             ICONS.home +
           '</button>' +
-          '<button class="cmp-floating-nav__btn" type="button" aria-label="소개" data-toast="준비중입니다">' +
+          '<button class="cmp-floating-nav__btn" type="button" aria-label="소개" onclick="location.href=\'intro.html\'">' +
             ICONS.profile +
           '</button>' +
           /* 보류 — 커피챗 신청 버튼 (ICONS.coffee 주석과 함께 복구)

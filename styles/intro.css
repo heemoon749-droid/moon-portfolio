@@ -1,0 +1,219 @@
+/* ============================================================
+ * intro.css — 자기소개 페이지 (이력서 2단 레이아웃)
+ *  좌: 프로필 + 연락처 + 스킬 (sticky sidebar)
+ *  우: About Me + Experience
+ * 글로벌 토큰 + base.css 컴포넌트 재사용. 페이지 전용 변형만 정의.
+ * ============================================================ */
+
+/* ============================================================
+ * Layout — 2-col grid
+ * ============================================================ */
+.cmp-intro-resume__grid {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: var(--spacing-40);
+  align-items: start;
+}
+
+/* ============================================================
+ * Sidebar
+ * ============================================================ */
+.cmp-intro-resume__sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-24);
+  padding: var(--spacing-24);
+  background: var(--color-pure-white);
+  border-radius: var(--radius-16);
+  box-shadow: var(--shadow-blur);
+  position: sticky;
+  top: 100px;
+}
+
+.cmp-intro-resume__visual {
+  margin: 0;
+  width: 200px;
+  height: 200px;
+  align-self: center;
+  border-radius: var(--radius-24);
+  overflow: hidden;
+  box-shadow: var(--shadow-gray);
+  background: var(--color-pure-white);
+}
+.cmp-intro-resume__visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.cmp-intro-resume__identity {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-04);
+  text-align: center;
+}
+.cmp-intro-resume__name {
+  margin: 0;
+  color: var(--color-secondary900);
+}
+.cmp-intro-resume__role {
+  margin: 0;
+  color: var(--color-secondary500);
+}
+
+/* ============================================================
+ * Block — 사이드바 / 메인 공통 헤더 + 컨텐츠 묶음
+ * ============================================================ */
+.cmp-intro-resume__block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+}
+.cmp-intro-resume__sidebar .cmp-intro-resume__block {
+  border-top: 1px solid var(--color-secondary200);
+  padding-top: var(--spacing-16);
+}
+.cmp-intro-resume__block-title {
+  margin: 0;
+  color: var(--color-secondary900);
+}
+
+/* ============================================================
+ * Contact list — 아이콘 + 텍스트 라인
+ * ============================================================ */
+.cmp-contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-08);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.cmp-contact-list li {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-08);
+}
+.cmp-contact-list__ico {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  color: var(--color-primary500);
+  flex-shrink: 0;
+}
+.cmp-contact-list a {
+  color: var(--color-secondary700);
+  word-break: break-all;
+  transition: color var(--dur-hover) var(--ease-water);
+}
+.cmp-contact-list a:hover {
+  color: var(--color-primary500);
+}
+
+/* ============================================================
+ * Skill Row — 아이콘만 나열 (cmp-tool 컴포넌트 재사용)
+ *  ·cmp-tool--text  : 이미지 아이콘이 없는 스킬 (HTML/CSS, JS) 텍스트로 대체
+ *  ·cmp-skill-row   : 사이드바 폭에서 줄바꿈 허용
+ * ============================================================ */
+.cmp-skill-row {
+  flex-wrap: wrap;
+  margin-top: 0;
+}
+.cmp-tool--text {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-primary500);
+}
+
+/* ============================================================
+ * Main column — About + Experience
+ * ============================================================ */
+.cmp-intro-resume__main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-40);
+}
+.cmp-intro-resume__about {
+  margin: 0;
+  color: var(--color-secondary600);
+  line-height: 1.7;
+}
+.cmp-intro-resume__about strong {
+  color: var(--color-secondary900);
+  font-weight: 600;
+}
+
+/* ============================================================
+ * Career List — 날짜 / 회사 + 프로젝트 (블록 안 카드)
+ * ============================================================ */
+.cmp-career-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-24);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.cmp-career-item {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: var(--spacing-24);
+  padding: var(--spacing-24);
+  background: var(--color-pure-white);
+  border-radius: var(--radius-16);
+  box-shadow: var(--shadow-blur);
+}
+.cmp-career-item__date {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-04);
+  color: var(--color-secondary500);
+}
+.cmp-career-item__date strong {
+  color: var(--color-primary500);
+  font-weight: 600;
+}
+.cmp-career-item__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+}
+.cmp-career-item__company {
+  margin: 0;
+  color: var(--color-secondary900);
+}
+.cmp-career-item__role {
+  margin: 0;
+  color: var(--color-secondary600);
+}
+.cmp-career-item__projects {
+  margin: 0;
+  padding-left: var(--spacing-16);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-08);
+  color: var(--color-secondary500);
+}
+.cmp-career-item__projects li strong {
+  color: var(--color-secondary700);
+  font-weight: 600;
+}
+
+/* ============================================================
+ * Responsive
+ * ============================================================ */
+@media (max-width: 1023px) {
+  .cmp-intro-resume__grid {
+    grid-template-columns: 1fr;
+  }
+  .cmp-intro-resume__sidebar {
+    position: static;
+  }
+  .cmp-career-item {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-12);
+  }
+}
