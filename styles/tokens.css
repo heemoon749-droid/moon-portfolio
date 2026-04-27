@@ -1,0 +1,99 @@
+/* ============================================================
+ * Design Tokens — generated from design-roles.json
+ * Source of truth: e:/포트폴리오/design-roles.json
+ * ============================================================ */
+
+:root {
+  /* ---------- Color — Core ---------- */
+  --color-white: #f8f9fa;
+  --color-pure-white: #ffffff;
+
+  --color-primary500: #e07a5f;
+  --color-primary600: #ca6e56;
+  --color-primary100: #f8f2f0;
+  
+
+  --color-secondary50:  #f6f6f6;
+  --color-secondary100: #ececef;
+  --color-secondary200: #e2e2e6;
+  --color-secondary300: #c3c4cc;
+  --color-secondary400: #a5a6b4;
+  --color-secondary500: #787a8b;
+  --color-secondary600: #5a5c74;
+  --color-secondary700: #3d405b;
+  --color-secondary800: #2e3044;
+  --color-secondary900: #252637;
+
+  /* ---------- Spacing ---------- */
+  --spacing-04: 4px;
+  --spacing-08: 8px;
+  --spacing-12: 12px;
+  --spacing-16: 16px;
+  --spacing-24: 24px;
+  --spacing-40: 40px;
+  --spacing-80: 80px;
+
+  /* ---------- Border Radius ---------- */
+  --radius-04: 4px;
+  --radius-08: 8px;
+  --radius-16: 16px;
+  --radius-24: 24px;
+  --radius-32: 32px;
+  --radius-40: 40px;
+  --radius-pill: 9999px;
+
+  /* ---------- Border Width ---------- */
+  --bd-01: 1px;
+  --bd-02: 2px;
+  --bd-04: 4px;
+
+  /* ---------- Sizing ---------- */
+  --sz-24: 24px;
+  --sz-48: 48px;
+  --sz-96: 96px;
+  --sz-1280: 1280px;
+
+  /* ---------- Layout ---------- */
+  --layout-padding-pc: 80px;
+
+  /* ---------- Opacity ---------- */
+  --opacity-dimmed: 0.3;
+
+  /* ---------- Shadow — 뉴모피즘 3종 ---------- */
+  --shadow-blur:
+    -4px -4px 12px 0 #ffffff,
+     4px  4px 12px 0 rgba(61, 64, 91, 0.03),
+    inset 1px 1px 2px 1px rgba(255, 255, 255, 0.8);
+
+  --shadow-gray: 5px 5px 20px 0 rgba(0, 0, 0, 0.07);
+
+  --shadow-coral:
+    -20px -20px 40px 0 rgba(255, 255, 255, 0.95),
+     20px  20px 40px 0 rgba(224, 122, 95, 0.12);
+
+  /* ---------- Gradient ---------- */
+  --grad-linear: linear-gradient(
+    166.675deg,
+    rgba(255, 255, 255, 0.7) 0%,
+    rgba(248, 249, 250, 0.4) 100%
+  );
+  --grad-coral02: radial-gradient(
+    circle at center,
+    rgba(224, 122, 95, 0.2) 0%,
+    rgba(224, 122, 95, 0) 70%
+  );
+  --grad-coral07: radial-gradient(
+    circle at center,
+    rgba(224, 122, 95, 0.6) 0%,
+    rgba(224, 122, 95, 0) 70%
+  );
+  --grad-gray: radial-gradient(
+    ellipse at center,
+    rgba(243, 243, 243, 1) 0%,
+    rgba(232, 232, 232, 1) 100%
+  );
+
+  /* ---------- Motion ---------- */
+  --ease-water: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --dur-hover: 700ms;
+}

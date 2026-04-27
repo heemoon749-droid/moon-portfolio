@@ -1,0 +1,199 @@
+/* ============================================================
+ * dark.css — Dark mode 오버라이드
+ *
+ * 활성화: <html data-theme="dark">
+ * 저장:   localStorage.setItem('theme', 'dark' | 'light')
+ *
+ * 구조:
+ *   1. 토큰 재정의 (color / shadow / gradient) — 대부분의 UI가 토큰만
+ *      쓰므로 이 블록 하나로 카드/섹션/버튼이 자동 전환됨.
+ *   2. base.css / main.css 안의 하드코딩 rgba(#ffffff, #f8f9fa) 등
+ *      유리(glass) 표면 수치 보정.
+ *   3. Ripple / scroll / hint 등 blend 모드 조정.
+ * ============================================================ */
+
+/* ---------- 1. Token overrides ---------- */
+[data-theme="dark"] {
+  /* Surface */
+  --color-white: #15161e;
+  --color-pure-white: #1e1f2b;
+
+  /* Secondary — 라이트 스케일을 뒤집어 톤 보존 */
+  --color-secondary50:  #22232e;
+  --color-secondary100: #2a2b37;
+  --color-secondary200: #3b3c49;
+  --color-secondary300: #5a5c6a;
+  --color-secondary400: #787a8b;
+  --color-secondary500: #a5a6b4;
+  --color-secondary600: #c3c4cc;
+  --color-secondary700: #e2e2e6;
+  --color-secondary800: #ececef;
+  --color-secondary900: #f8f9fa;
+
+  /* Primary — 다크 배경에서 살짝 따뜻하게 */
+  --color-primary500: #ec8a70;
+  --color-primary600: #d07658;
+  --color-primary100: #3a251f;
+
+  /* Shadows — 뉴모피즘 반전 (하단 검정, 상단 은은한 흰) */
+  --shadow-blur:
+    -4px -4px 12px 0 rgba(255, 255, 255, 0.02),
+     4px  4px 12px 0 rgba(0, 0, 0, 0.5),
+    inset 1px 1px 2px 1px rgba(255, 255, 255, 0.04);
+
+  --shadow-gray: 5px 5px 20px 0 rgba(0, 0, 0, 0.35);
+
+  --shadow-coral:
+    -20px -20px 40px 0 rgba(40, 42, 58, 0.6),
+     20px  20px 40px 0 rgba(236, 138, 112, 0.15);
+
+  /* Gradients */
+  --grad-linear: linear-gradient(
+    166.675deg,
+    rgba(50, 52, 70, 0.6) 0%,
+    rgba(30, 32, 46, 0.3) 100%
+  );
+  --grad-gray: radial-gradient(
+    ellipse at center,
+    rgba(40, 42, 58, 1) 0%,
+    rgba(28, 30, 42, 1) 100%
+  );
+}
+
+/* ---------- 2. Hardcoded glass / white 보정 ---------- */
+
+/* Cover header (main.css) */
+[data-theme="dark"] .cmp-header {
+  background: rgba(21, 22, 30, 0.6);
+}
+
+/* Project header glass bar (base.css) */
+[data-theme="dark"] .cmp-project-header__inner {
+  background: rgba(21, 22, 30, 0.6);
+  border-bottom-color: rgba(255, 255, 255, 0.04);
+  box-shadow: 5px 5px 20px 0 rgba(0, 0, 0, 0.35);
+}
+[data-theme="dark"] .cmp-project-header__nav {
+  background: rgba(30, 31, 43, 0.9);
+  box-shadow:
+    8px 8px 16px 0 rgba(0, 0, 0, 0.3),
+    inset  2px  2px 6px 0 rgba(255, 255, 255, 0.04),
+    inset -2px -2px 6px 0 rgba(0, 0, 0, 0.4);
+}
+
+/* Floating nav (base.css) */
+[data-theme="dark"] .cmp-floating-nav__group {
+  border-color: rgba(255, 255, 255, 0.06);
+  box-shadow:
+    12px  12px 32px 0 rgba(0, 0, 0, 0.4),
+   -12px -12px 32px 0 rgba(255, 255, 255, 0.02);
+}
+[data-theme="dark"] .cmp-floating-nav__group::after {
+  box-shadow:
+    inset  2px  2px 4px 0 rgba(255, 255, 255, 0.04),
+    inset -2px -2px 6px 0 rgba(0, 0, 0, 0.4);
+}
+[data-theme="dark"] .cmp-floating-nav__top {
+  background: rgba(30, 31, 43, 0.9);
+  box-shadow: 8px 8px 16px 0 rgba(0, 0, 0, 0.35);
+}
+[data-theme="dark"] .cmp-floating-nav__top::after {
+  box-shadow:
+    inset  2px  2px 6px 0 rgba(255, 255, 255, 0.04),
+    inset -2px -2px 6px 0 rgba(0, 0, 0, 0.4);
+}
+
+/* Project hero background — 하단 inset highlight 완화 */
+[data-theme="dark"] .cmp-project-hero__background {
+  border-color: rgba(255, 255, 255, 0.04);
+}
+
+/* ---------- 2-0. modube warm tab frame 중성화 ----------
+ * 라이트에선 코랄 primary100 배경으로 웜톤을 강조했지만,
+ * 다크에선 코랄 웜톤이 어울리지 않아 neutral surface 로 통일. */
+[data-theme="dark"] .cmp-tab-frame--warm {
+  background: var(--color-secondary100);
+}
+
+/* ---------- 2-1. "코랄 위 흰 텍스트" 보정 ----------
+ * --color-pure-white 토큰은 다크에서 어두운 surface 로 반전되지만,
+ * 코랄 배경 위 흰 숫자/라벨로 쓰인 케이스는 여전히 흰색이 필요. */
+[data-theme="dark"] .cmp-step-row__badge,
+[data-theme="dark"] .cmp-step-row__num,
+[data-theme="dark"] .cmp-visual-toggle__btn.is-active {
+  color: #ffffff;
+}
+
+/* ---------- 2-2. nebeca 상태 배지 (waiting/success/enrolled) ----------
+ * 하드코딩된 어두운 텍스트를 다크에서도 읽히는 파스텔 톤으로 조정. */
+[data-theme="dark"] .cmp-logic-flow__head--waiting  { background: rgba(249, 168, 37, 0.10); }
+[data-theme="dark"] .cmp-logic-flow__head--success  { background: rgba( 76, 175, 80, 0.10); }
+[data-theme="dark"] .cmp-logic-flow__head--enrolled { background: rgba(236,  71, 65, 0.10); }
+
+[data-theme="dark"] .cmp-logic-flow__status--waiting {
+  background: rgba(249, 168, 37, 0.22);
+  color: #ffb74d;
+}
+[data-theme="dark"] .cmp-logic-flow__status--success {
+  background: rgba(76, 175, 80, 0.22);
+  color: #81c784;
+}
+[data-theme="dark"] .cmp-logic-flow__status--enrolled {
+  background: rgba(236, 71, 65, 0.22);
+  color: #ef9a9a;
+}
+
+/* ---------- 3. Blend / 효과 조정 ---------- */
+
+/* Hero 이미지 drop-shadow — 다크에서는 살짝만 */
+[data-theme="dark"] .cmp-hero__image {
+  filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.5));
+}
+
+/* ============================================================
+ * Theme Toggle — 헤더 내부 sun/moon 전환 버튼 (index 헤더 전용)
+ * ============================================================ */
+.cmp-theme-toggle {
+  position: absolute;
+  top: 50%;
+  right: var(--spacing-40);
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-secondary700);
+  background: rgba(255, 255, 255, 0.4);
+  box-shadow: var(--shadow-gray);
+  transition:
+    color var(--dur-hover) var(--ease-water),
+    background-color var(--dur-hover) var(--ease-water),
+    transform 500ms var(--ease-water);
+}
+.cmp-theme-toggle:hover {
+  color: var(--color-primary500);
+  transform: translateY(-50%) scale(1.05);
+}
+.cmp-theme-toggle svg {
+  width: 22px;
+  height: 22px;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* sun/moon 스위칭 — 기본(라이트)은 달, 다크일 때 해 */
+.cmp-theme-toggle__sun  { display: none; }
+.cmp-theme-toggle__moon { display: block; }
+[data-theme="dark"] .cmp-theme-toggle__sun  { display: block; }
+[data-theme="dark"] .cmp-theme-toggle__moon { display: none; }
+
+/* 다크 모드 토글 버튼 표면 */
+[data-theme="dark"] .cmp-theme-toggle {
+  color: var(--color-secondary700);
+  background: rgba(30, 31, 43, 0.7);
+}

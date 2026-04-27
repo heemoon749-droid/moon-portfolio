@@ -1,0 +1,220 @@
+/* ============================================================
+ * main.css — Cover (index.html) 전용 레이아웃
+ * Figma reference: main (9:13)
+ *
+ * 공통(reset, ripple, tag, floating-nav, project-header,
+ * section, project-hero, tool, bullet-list, achievement 등)은 base.css.
+ * ============================================================ */
+
+/* ------------------------------------------------------------
+ * Cover Header (Cover 페이지 전용 로고바 — 프로젝트 헤더와 별개)
+ * ------------------------------------------------------------ */
+.cmp-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 50;
+  height: 90px;
+  display: flex;
+  align-items: center;
+  backdrop-filter: blur(10px);
+  background: rgba(248, 249, 250, 0.6);
+}
+
+.cmp-header__inner {
+  max-width: var(--sz-1280);
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: var(--spacing-40);
+}
+
+.cmp-header__logo {
+  font-family: var(--font-base);
+  font-weight: 500;
+  color: var(--color-secondary700);
+}
+
+/* ------------------------------------------------------------
+ * Hero — 물 파동 Canvas + 중앙 이미지 (Cover 전용)
+ * ------------------------------------------------------------ */
+.cmp-hero {
+  position: relative;
+  width: 100%;
+  height: 580px;
+  overflow: hidden;
+  background: var(--color-white);
+}
+
+.cmp-hero__canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.cmp-hero__stage {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.cmp-hero__image {
+  width: 220px;
+  height: 220px;
+  object-fit: contain;
+  filter: drop-shadow(0 30px 60px rgba(61, 64, 91, 0.08));
+  user-select: none;
+  -webkit-user-drag: none;
+  animation: hero-float 7s ease-in-out infinite;
+}
+
+@keyframes hero-float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+
+/* ------------------------------------------------------------
+ * Intro — 이름, 태그라인, skills, AI Tools
+ * ------------------------------------------------------------ */
+.cmp-intro {
+  padding-top: var(--spacing-80);
+  padding-bottom: var(--spacing-80);
+}
+
+.cmp-intro__name {
+  color: var(--color-secondary900);
+  margin: 0 0 var(--spacing-12);
+}
+
+.cmp-intro__role {
+  color: var(--color-secondary500);
+  max-width: 520px;
+  margin: 0 0 var(--spacing-40);
+}
+
+.cmp-intro__group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-08);
+  margin-top: var(--spacing-24);
+}
+
+.cmp-intro__group + .cmp-intro__group { margin-top: var(--spacing-24); }
+
+.cmp-intro__label {
+  color: var(--color-secondary500);
+}
+
+/* ------------------------------------------------------------
+ * Projects Grid (Cover 프로젝트 카드)
+ * ------------------------------------------------------------ */
+.cmp-projects {
+  padding-bottom: var(--spacing-80);
+}
+
+.cmp-project-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-24);
+}
+
+/* ------------------------------------------------------------
+ * Card — default: 뉴모피즘 / hover: 코랄 확산
+ * ------------------------------------------------------------ */
+.cmp-card {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  padding: var(--spacing-16);
+  border-radius: var(--radius-16);
+  background: var(--color-pure-white);
+  border: var(--bd-01) solid var(--color-secondary100);
+  box-shadow: var(--shadow-blur);
+  transition:
+    box-shadow var(--dur-hover) var(--ease-water),
+    transform  var(--dur-hover) var(--ease-water),
+    border-color var(--dur-hover) var(--ease-water),
+    background-color var(--dur-hover) var(--ease-water);
+  isolation: isolate;
+}
+
+/* 코랄 방사형 — hover 시 0 → 1 로 퍼지는 파동 */
+.cmp-card::before {
+  content: '';
+  position: absolute;
+  inset: 14%;
+  background: var(--grad-coral07);
+  opacity: 0;
+  transform: scale(0.3);
+  transition:
+    opacity var(--dur-hover) var(--ease-water),
+    transform 900ms var(--ease-water);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Glass 오버레이 */
+.cmp-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--grad-linear);
+  opacity: 0;
+  transition: opacity var(--dur-hover) var(--ease-water);
+  pointer-events: none;
+  z-index: 1;
+  border-radius: inherit;
+}
+
+.cmp-card > * { position: relative; z-index: 2; }
+
+.cmp-card:hover {
+  border-color: var(--color-primary500);
+  box-shadow: var(--shadow-coral);
+  transform: translateY(-2px);
+}
+.cmp-card:hover::before {
+  opacity: 1;
+  transform: scale(1.02);
+}
+.cmp-card:hover::after {
+  opacity: 1;
+}
+.cmp-card:hover .cmp-card__title {
+  color: var(--color-primary500);
+}
+
+/* ---- Card internals ---- */
+.cmp-card__thumb {
+  width: 100%;
+  max-height: 300px;
+  aspect-ratio: 339 / 287;
+  border-radius: var(--radius-16);
+  background: var(--grad-gray);
+  overflow: hidden;
+  margin-bottom: var(--spacing-24);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cmp-card__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cmp-card__title {
+  color: var(--color-secondary700);
+  margin: 0 0 var(--spacing-08);
+  transition: color var(--dur-hover) var(--ease-water);
+}
+
+.cmp-card__desc {
+  color: var(--color-secondary500);
+  margin: 0 0 var(--spacing-16);
+}

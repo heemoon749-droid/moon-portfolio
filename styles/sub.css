@@ -1,0 +1,109 @@
+/* ============================================================
+ * sub.css — 서브 프로젝트 (A/B 랜딩 + 퍼포먼스 소재 + 디즈니 팝업)
+ *
+ * 기존 토큰 · modube.css 공통 패턴 재사용.
+ * 동일 클래스 예외 지정 없이, 필요한 변형은 별도 modifier 클래스로 분리.
+ * ============================================================ */
+
+/* ============================================================
+ * 공통 modifier — sub 페이지에서 파생된 베리언트
+ * (모든 페이지에서 재사용 가능하도록 전역 modifier 로 분리)
+ * ============================================================ */
+.cmp-tag-row--nowrap        { flex-wrap: nowrap; }
+.cmp-section--transparent   { background-color: transparent; }
+.cmp-section--pad-compact   { padding-top: var(--spacing-40); }
+.cmp-section__header--left  { align-items: flex-start; text-align: left; }
+.cmp-section__lede--flush   { max-width: none; margin: 0; }
+
+/* ============================================================
+ * Disney 팝업 — 자체 BEM 엘리먼트로 완결 (cmp-project-hero 재사용 X)
+ * ============================================================ */
+.cmp-disney-popup {
+  display: flex;
+  flex-direction: row;
+  gap: var(--spacing-40);
+  align-items: center;
+}
+.cmp-disney-popup__meta {
+  flex: 1;
+  min-width: 0;
+}
+.cmp-disney-popup__visual {
+  flex: 1;
+  min-width: 0;
+}
+.cmp-disney-popup__visual img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.cmp-disney-popup__lede {
+  margin-bottom: var(--spacing-24);
+  color: var(--color-secondary600);
+}
+
+/* ============================================================
+ * 섹션 내부 대형 이미지 (A/B 랜딩 히어로 스크린샷 등)
+ * ============================================================ */
+.cmp-side-section-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-bottom: var(--spacing-40);
+}
+
+/* ============================================================
+ * 1. Conversion Logic — 3축 카드 그리드
+ * ============================================================ */
+.cmp-logic-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-24);
+}
+.cmp-logic-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+  padding: var(--spacing-16);
+  border-radius: var(--radius-24);
+  background: var(--color-pure-white);
+  box-shadow: var(--shadow-blur);
+}
+.cmp-logic-card__num {
+  margin: 0;
+  color: var(--color-primary500);
+  font-feature-settings: "tnum" 1;
+}
+.cmp-logic-card__title {
+  margin: 0;
+  color: var(--color-secondary900);
+}
+.cmp-logic-card__desc {
+  margin: 0;
+  color: var(--color-secondary500);
+}
+.cmp-logic-card__desc strong { color: var(--color-secondary700); }
+
+/* ============================================================
+ * 2. Performance Creative — 매체 최적화 소재 정사각 4-card 그리드
+ * ============================================================ */
+.cmp-creative-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--spacing-24);
+}
+.cmp-creative-item {
+  margin: 0;
+  border-radius: var(--radius-16);
+  overflow: hidden;
+  background: var(--color-pure-white);
+  box-shadow: var(--shadow-blur);
+}
+.cmp-creative-item img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+

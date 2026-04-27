@@ -1,0 +1,474 @@
+/* ============================================================
+ * modube.css — Modube 솔루션 상세 페이지 (페이지 전용 스타일만)
+ * Figma reference: modube-수정 (204:2524)
+ *
+ * 공통 스타일(cmp-portfolio, cmp-project-header, cmp-section, cmp-project-hero,
+ * cmp-tool, cmp-bullet-list, cmp-achievement, cmp-ds-section, cmp-tab-points__dot)은
+ * base.css 에 정의되어 있음.
+ * ============================================================ */
+
+/* Visual 섹션 — 이원화 UI (배경 별도) */
+.cmp-section-visual {
+  padding-top: var(--spacing-80);
+  padding-bottom: var(--spacing-80);
+}
+.cmp-title-group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-08);
+}
+
+/* ============================================================
+ * 2. Brand Foundation — 2×2 surface grid
+ * ============================================================ */
+.cmp-foundation-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--spacing-24);
+}
+
+.cmp-surface {
+  position: relative;
+  padding: var(--spacing-24);
+  border-radius: var(--radius-16);
+  background: var(--color-pure-white);
+  box-shadow: var(--shadow-blur);
+  border: var(--bd-01) solid var(--color-secondary50);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+}
+.cmp-surface--col2 { grid-column: span 2; }
+.cmp-surface--tall {
+  grid-column: 1 / -1;
+}
+
+.cmp-surface__title { margin: 0; color: var(--color-secondary700); }
+.cmp-surface__desc  { margin: 0; color: var(--color-secondary600); }
+
+.cmp-surface__figure {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.cmp-surface__figure img { height: 26px; width: auto; max-width: 100%; }
+
+.cmp-logo-figure { min-height: 50px; justify-content: flex-start; }
+
+.cmp-digital-rules {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-40);
+  margin-top: var(--spacing-16);
+}
+.cmp-clear-space {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+.cmp-digital-rules img,
+.cmp-clear-space img { height: 60px; width: auto; max-width: 100%; }
+
+/* Color palette */
+.cmp-palette-block {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-08);
+  padding-top: var(--spacing-16);
+}
+.cmp-palette-block + .cmp-palette-block {
+  margin-top: var(--spacing-16);
+}
+.cmp-palette-block--horizontal {
+  flex: 1;
+  padding-top: 0;
+}
+.cmp-palette-block--horizontal + .cmp-palette-block--horizontal {
+  margin-top: 0;
+  padding-left: var(--spacing-24);
+  border-left: var(--bd-01) solid var(--color-secondary100);
+}
+.cmp-palette-wrap {
+  display: flex;
+  gap: var(--spacing-24);
+}
+.cmp-palette-row {
+  display: flex;
+  gap: var(--spacing-12);
+  margin-bottom: var(--spacing-08);
+}
+.cmp-swatch {
+  width: 64px;
+  height: 64px;
+  border-radius: var(--radius-08);
+  background: var(--sw, var(--color-secondary200));
+}
+.cmp-palette-block .t-sub-bold { color: var(--color-secondary700); margin: 0; }
+.cmp-palette-block .t-sub      { color: var(--color-secondary500); margin: 0; }
+
+/* Mono stack */
+.cmp-mono-stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+}
+.cmp-mono-stack img {
+  max-height: 60px;
+  width: auto;
+  object-fit: contain;
+  border-radius: var(--radius-08);
+}
+
+/* ============================================================
+ * 3. Visual — Tab panels
+ * ============================================================ */
+
+/* Toggle head */
+.cmp-visual-head {
+  max-width: var(--sz-1280);
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-16);
+  margin-bottom: var(--spacing-24);
+}
+.cmp-visual-toggle {
+  display: flex;
+  width: 290px;
+}
+.cmp-visual-toggle__btn {
+  flex: 1 0 0;
+  padding: var(--spacing-08) var(--spacing-16);
+  border: var(--bd-01) solid var(--color-secondary300);
+  background: transparent;
+  color: var(--color-secondary400);
+  font-family: var(--font-base);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  letter-spacing: -0.02em;
+  transition:
+    background var(--dur-hover) var(--ease-water),
+    color var(--dur-hover) var(--ease-water),
+    border-color var(--dur-hover) var(--ease-water);
+}
+.cmp-visual-toggle__btn:first-child {
+  border-top-left-radius: var(--radius-08);
+  border-bottom-left-radius: var(--radius-08);
+}
+.cmp-visual-toggle__btn:last-child {
+  border-top-right-radius: var(--radius-08);
+  border-bottom-right-radius: var(--radius-08);
+  border-left: 0;
+}
+.cmp-visual-toggle__btn:hover:not(.is-active) {
+  border-color: var(--color-primary500);
+  color: var(--color-primary500);
+  background: var(--color-primary100);
+}
+.cmp-visual-toggle__btn.is-active {
+  background: var(--color-primary500);
+  border-color: var(--color-primary500);
+  color: var(--color-pure-white);
+  font-weight: 600;
+}
+
+/* Tab panel */
+.cmp-tab-panel {
+  display: none;
+}
+.cmp-tab-panel.is-active {
+  display: block;
+}
+
+/* Lede (title + desc) */
+.cmp-tab-lede {
+  max-width: var(--sz-1280);
+  margin-inline: auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-08);
+  margin-bottom: var(--spacing-40);
+  padding-inline: var(--spacing-40);
+}
+.cmp-tab-lede__title { margin: 0; color: var(--color-primary500); }
+.cmp-tab-lede__title--neutral { color: var(--color-secondary900); }
+.cmp-tab-lede__desc  { margin: 0; color: var(--color-secondary600); }
+
+/* Frame — 이미지 쇼케이스 영역 */
+.cmp-tab-frame {
+  width: 100%;
+  padding: var(--spacing-16);
+  border-radius: var(--radius-24);
+  display: flex;
+  align-items: flex-end;
+  gap: var(--spacing-24);
+}
+.cmp-tab-frame--warm    { background: var(--color-primary100); }
+.cmp-tab-frame--neutral { background: var(--color-secondary100); }
+.cmp-tab-frame--hug {
+  min-height: auto;
+  height: auto;
+}
+
+/* Mockup figures */
+.cmp-tab-mockup {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-08);
+}
+.cmp-tab-mockup--mobile {
+  flex-shrink: 0;
+  width: 205px;
+}
+.cmp-tab-mockup--desktop {
+  flex: 1;
+  min-width: 0;
+}
+.cmp-tab-mockup__scroll {
+  position: relative;
+  width: 100%;
+  max-height: 520px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border-radius: var(--radius-08);
+  background: var(--color-pure-white);
+}
+.cmp-tab-mockup__scroll img:not(.cmp-tab-mockup__hint) {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.cmp-tab-mockup__scroll::-webkit-scrollbar { width: 6px; }
+.cmp-tab-mockup__scroll::-webkit-scrollbar-thumb {
+  background: rgba(224, 122, 95, 0.3);
+  border-radius: 3px;
+}
+.cmp-tab-mockup__hint {
+  position: absolute;
+  bottom: var(--spacing-16);
+  right: var(--spacing-16);
+  width: 64px;
+  height: auto;
+  pointer-events: none;
+  z-index: 1;
+  animation: mockup-hint-bounce 1.8s ease-in-out infinite;
+}
+@keyframes mockup-hint-bounce {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(6px); }
+}
+.cmp-tab-mockup--desktop > img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-08);
+}
+
+/* Point cards — 아래 설명 블록 */
+.cmp-tab-points {
+  max-width: var(--sz-1280);
+  margin-inline: auto;
+  margin-top: var(--spacing-40);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-24);
+}
+.cmp-tab-points__group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+}
+.cmp-tab-points__label {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-08);
+  color: var(--color-secondary600);
+}
+.cmp-tab-points__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-24);
+}
+.cmp-point-card {
+  display: flex;
+  gap: var(--spacing-16);
+  padding: var(--spacing-16);
+  border-radius: var(--radius-16);
+  border: var(--bd-01) solid var(--color-secondary100);
+  background: var(--color-pure-white);
+}
+.cmp-point-card--wide {
+  grid-column: 1 / -1;
+}
+.cmp-point-card__thumb {
+  flex-shrink: 0;
+  width: 140px;
+  height: 100px;
+  border-radius: var(--radius-08);
+  overflow: hidden;
+  background: var(--color-secondary50);
+}
+.cmp-point-card__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.cmp-point-card__text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-08);
+}
+.cmp-point-card__text h5 { margin: 0; color: var(--color-secondary900); }
+.cmp-point-card__text p  { margin: 0; color: var(--color-secondary600); }
+
+/* ============================================================
+ * 4. Design System
+ * ============================================================ */
+.cmp-btn-spec-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-40);
+}
+.cmp-btn-spec {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-08);
+  text-align: center;
+}
+.cmp-btn-spec__figure {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  min-height: 130px;
+}
+.cmp-btn-spec__figure img { max-width: 100%; height: auto; }
+.cmp-btn-spec__title { margin: 0; color: var(--color-secondary900); }
+.cmp-btn-spec__desc  { margin: 0; color: var(--color-secondary600); text-align: left; }
+
+/* ds-pair — 평면 스타일 + 가운데 구분선 */
+.cmp-ds-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-24);
+}
+.cmp-ds-pair__col {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+}
+.cmp-ds-pair > .cmp-ds-pair__col + .cmp-ds-pair__col {
+  padding-left: var(--spacing-40);
+  border-left: var(--bd-01) solid var(--color-secondary100);
+}
+
+.cmp-ds-section__intro {
+  margin-bottom: var(--spacing-24);
+}
+.cmp-ds-section__intro h3 { margin: 0 0 var(--spacing-08); color: var(--color-secondary900); }
+.cmp-ds-section__intro p  { margin: 0; color: var(--color-secondary500); }
+
+.cmp-code-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  margin-inline: auto;
+  padding: var(--spacing-12) var(--spacing-24);
+  border-radius: var(--radius-08);
+  background: var(--color-secondary700);
+  color: var(--color-pure-white);
+  font-family: 'JetBrains Mono', Consolas, Monaco, monospace;
+  font-size: 13px;
+  white-space: nowrap;
+}
+.cmp-mono {
+  font-family: 'JetBrains Mono', Consolas, Monaco, monospace;
+  font-size: 14px;
+  color: var(--color-secondary600);
+}
+
+/* Table */
+.cmp-ds-table {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.cmp-ds-table__head,
+.cmp-ds-table__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: var(--spacing-16);
+  padding: var(--spacing-16) var(--spacing-24);
+}
+.cmp-ds-table__head {
+  color: var(--color-secondary500);
+  border-bottom: var(--bd-01) solid var(--color-secondary100);
+}
+.cmp-ds-table__row {
+  color: var(--color-secondary700);
+}
+.cmp-ds-table__row + .cmp-ds-table__row,
+.cmp-ds-table__head + .cmp-ds-table__row {
+  border-top: var(--bd-01) solid var(--color-secondary100);
+}
+.cmp-ds-table__row > :nth-child(2) { color: var(--color-primary500); }
+
+/* Spacing / Typography pair */
+.cmp-spacing-demo {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: var(--spacing-16);
+}
+.cmp-spacing-demo__col {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--spacing-16);
+  padding: var(--spacing-16) var(--spacing-24);
+  border-radius: var(--radius-16);
+  background: var(--color-secondary50);
+}
+.cmp-spacing-demo__col p { margin: 0; }
+.cmp-spacing-demo__col .t-sub-bold { color: var(--color-secondary500); }
+.cmp-spacing-demo__col .t-body-s   { color: var(--color-primary500); }
+.cmp-spacing-demo__rw {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-16);
+}
+.cmp-spacing-demo__rw .t-sub { color: var(--color-secondary500); margin: 0; }
+.cmp-spacing-demo__rw .t-body-s { color: var(--color-primary500); margin: 0; }
+.cmp-unit { color: var(--color-secondary400); font-weight: 400; }
+
+.cmp-typo-pair__icon {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-08);
+}
+.cmp-typo-pair__icon img { height: 32px; width: auto; }
+
+.cmp-typo-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-16);
+}
+.cmp-typo-pair__col {
+  padding: var(--spacing-16) var(--spacing-24);
+  border-radius: var(--radius-16);
+  background: var(--color-secondary50);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-08);
+}
+.cmp-typo-pair__col p { margin: 0; }
+.cmp-typo-pair__col .t-sub-bold { color: var(--color-secondary500); }
+.cmp-typo-pair__big {
+  color: var(--color-primary500);
+  margin: 0;
+}
+.cmp-typo-pair__col .t-body-s { color: var(--color-secondary700); }
