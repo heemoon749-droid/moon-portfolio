@@ -118,11 +118,11 @@
  * ============================================================ */
 .cmp-step-row {
   list-style: none;
-  padding: 0;
+  padding-block: 0;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--spacing-24);
-  align-items: start;
+  align-items: stretch;
 }
 /* intro 카드 (full width) */
 .cmp-step-row__item:nth-child(1) { grid-column: 1 / -1; }
