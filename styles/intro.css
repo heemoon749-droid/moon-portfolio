@@ -8,7 +8,7 @@
 /* ============================================================
  * Layout — 2-col grid
  * ============================================================ */
-.cmp-intro-resume__grid {
+.cmp-intro-resume__layout {
   display: grid;
   grid-template-columns: 320px 1fr;
   gap: var(--spacing-40);
@@ -157,7 +157,7 @@
   padding: 0;
   list-style: none;
 }
-.cmp-career-item {
+.cmp-career-entry {
   display: grid;
   grid-template-columns: 160px 1fr;
   gap: var(--spacing-24);
@@ -166,30 +166,30 @@
   border-radius: var(--radius-16);
   box-shadow: var(--shadow-blur);
 }
-.cmp-career-item__date {
+.cmp-career-entry__date {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-04);
   color: var(--color-secondary500);
 }
-.cmp-career-item__date strong {
+.cmp-career-entry__date strong {
   color: var(--color-primary500);
   font-weight: 600;
 }
-.cmp-career-item__body {
+.cmp-career-entry__body {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-12);
 }
-.cmp-career-item__company {
+.cmp-career-entry__company {
   margin: 0;
   color: var(--color-secondary900);
 }
-.cmp-career-item__role {
+.cmp-career-entry__role {
   margin: 0;
   color: var(--color-secondary600);
 }
-.cmp-career-item__projects {
+.cmp-career-entry__projects {
   margin: 0;
   padding-left: var(--spacing-16);
   display: flex;
@@ -197,23 +197,8 @@
   gap: var(--spacing-08);
   color: var(--color-secondary500);
 }
-.cmp-career-item__projects li strong {
+.cmp-career-entry__projects li strong {
   color: var(--color-secondary700);
   font-weight: 600;
 }
 
-/* ============================================================
- * Responsive
- * ============================================================ */
-@media (max-width: 1023px) {
-  .cmp-intro-resume__grid {
-    grid-template-columns: 1fr;
-  }
-  .cmp-intro-resume__sidebar {
-    position: static;
-  }
-  .cmp-career-item {
-    grid-template-columns: 1fr;
-    gap: var(--spacing-12);
-  }
-}

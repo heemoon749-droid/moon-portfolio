@@ -21,7 +21,7 @@
 /* ============================================================
  * 2. Brand Foundation — 2×2 surface grid
  * ============================================================ */
-.cmp-foundation-grid {
+.cmp-foundation-set {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   gap: var(--spacing-24);
@@ -207,8 +207,10 @@
   gap: var(--spacing-24);
 }
 .cmp-tab-frame--warm    { background: var(--color-primary100); }
-.cmp-tab-frame--neutral { background: var(--color-secondary100); }
-.cmp-tab-frame--hug {
+.cmp-tab-frame--neutral,
+.cmp-tab-frame--neutral-hug { background: var(--color-secondary100); }
+.cmp-tab-frame--hug,
+.cmp-tab-frame--neutral-hug {
   min-height: auto;
   height: auto;
 }
@@ -328,7 +330,7 @@
 /* ============================================================
  * 4. Design System
  * ============================================================ */
-.cmp-btn-spec-grid {
+.cmp-btn-specs {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: var(--spacing-40);

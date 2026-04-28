@@ -27,31 +27,38 @@
   margin: 0 0 var(--spacing-24);
   color: var(--color-secondary700);
 }
-.cmp-ba-stack__grid {
+.cmp-ba-stack__pair {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: var(--spacing-40);
 }
-.cmp-ba-stack__item {
+.cmp-ba-stack__panel {
   margin: 0;
   display: flex;
   flex-direction: column;
   gap: var(--spacing-08);
 }
-.cmp-ba-stack__item img {
+.cmp-ba-stack__panel img {
   display: block;
   width: 100%;
   height: auto;
 }
-.cmp-ba-stack__item figcaption {
+.cmp-ba-stack__panel figcaption {
   color: var(--color-secondary400);
   text-align: center;
 }
 
 /* ============================================================
  * flat 섹션 배경 토큰 (modube.css 기본값이 pure-white 인 섹션과 구분)
+ * + Achievement 전용 통합 클래스 (cmp-section + --flat 효과 포함)
  * ============================================================ */
-.cmp-section--flat { background-color: var(--color-white); }
+.cmp-section--flat,
+.cmp-achievement--flat-section { background-color: var(--color-white); }
+.cmp-achievement--flat-section > * {
+  max-width: var(--sz-1280);
+  margin-inline: auto;
+  padding-inline: var(--spacing-40);
+}
 
 /* ============================================================
  * Notebook mockup — 프레임 + 내부 스크롤 이미지 + 힌트 태그
@@ -125,8 +132,8 @@
   align-items: stretch;
 }
 /* intro 카드 (full width) */
-.cmp-step-row__item:nth-child(1) { grid-column: 1 / -1; }
-.cmp-step-row__item {
+.cmp-step-row__step:nth-child(1) { grid-column: 1 / -1; }
+.cmp-step-row__step {
   display: grid;
   grid-template-columns: auto 1fr;
   grid-template-areas:
@@ -143,13 +150,13 @@
   box-shadow: var(--shadow-blur);
   isolation: isolate;
 }
-.cmp-step-row__item > .cmp-step-row__badge { grid-area: badge; }
-.cmp-step-row__item > .cmp-step-row__title { grid-area: title; }
-.cmp-step-row__item > .cmp-step-row__thumb { grid-area: thumb; }
-.cmp-step-row__item > .cmp-step-row__desc  { grid-area: desc; }
+.cmp-step-row__step > .cmp-step-row__badge { grid-area: badge; }
+.cmp-step-row__step > .cmp-step-row__title { grid-area: title; }
+.cmp-step-row__step > .cmp-step-row__thumb { grid-area: thumb; }
+.cmp-step-row__step > .cmp-step-row__desc  { grid-area: desc; }
 
 /* intro 카드는 뱃지 없음 — 단순 flex column 으로 리셋 */
-.cmp-step-row__item--intro {
+.cmp-step-row__step--intro {
   display: flex;
   flex-direction: column;
   align-items: flex-start;

@@ -22,6 +22,11 @@ body {
   -ms-user-select: none;
   user-select: none;
 }
+
+/* ---------- Min-width — 1024 이하에서 레이아웃 축소 중단 (가로 스크롤 허용) ---------- */
+@media (max-width: 1023px) {
+  body { min-width: 1024px; }
+}
 a { color: inherit; text-decoration: none; }
 button { font: inherit; background: none; border: none; cursor: pointer; color: inherit; }
 img {
@@ -350,6 +355,7 @@ img {
   margin-bottom: var(--spacing-24);
   padding-inline: 40px;
 }
+
 .cmp-project-hero__meta {
   display: flex;
   flex-direction: column;
@@ -498,19 +504,19 @@ img {
   height: 1px;
   background: var(--color-secondary200);
 }
-.cmp-achievement__grid {
+.cmp-achievement__metrics {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--spacing-40);
 }
-.cmp-achievement__grid article {
+.cmp-achievement__metrics article {
   display: flex;
   flex-direction: column;
   gap: var(--spacing-08);
 }
-.cmp-achievement__grid h3 { margin: 0; color: var(--color-secondary900); }
-.cmp-achievement__grid p  { margin: 0; color: var(--color-secondary600); }
-.cmp-achievement__grid strong { color: var(--color-primary500); font-weight: 600; }
+.cmp-achievement__metrics h3 { margin: 0; color: var(--color-secondary900); }
+.cmp-achievement__metrics p  { margin: 0; color: var(--color-secondary600); }
+.cmp-achievement__metrics strong { color: var(--color-primary500); font-weight: 600; }
 
 /* ---------- Section reveal (scroll-triggered) ---------- */
 .is-reveal {

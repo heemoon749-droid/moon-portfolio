@@ -115,7 +115,7 @@
   padding-bottom: var(--spacing-80);
 }
 
-.cmp-project-grid {
+.cmp-project-list {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: var(--spacing-24);
