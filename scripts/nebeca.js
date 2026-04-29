@@ -29,7 +29,7 @@
 
   function resetAuto() {
     clearInterval(autoTimer);
-    autoTimer = setInterval(function () { goTo(current + 1); }, 10000);
+    autoTimer = setInterval(function () { goTo(current + 1); }, 6000);
   }
 
   thumbs.forEach(function (thumb, i) {
