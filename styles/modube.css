@@ -105,6 +105,7 @@
 }
 .cmp-palette-block .t-sub-bold { color: var(--color-secondary700); margin: 0; }
 .cmp-palette-block .t-sub      { color: var(--color-secondary500); margin: 0; }
+.cmp-palette-block__highlight  { color: var(--color-primary500); }
 
 /* Mono stack */
 .cmp-mono-stack {
