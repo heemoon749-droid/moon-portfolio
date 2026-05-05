@@ -399,16 +399,114 @@
       <header class="cmp-section__header cmp-section__header--center">
         <span class="cmp-history-eyebrow t-sub-bold">Design System</span>
         <div class="cmp-title-group">
-          <h2 class="cmp-section__title t-heading-m">BEM 기반 네이밍 규칙 수립</h2>
+          <h2 class="cmp-section__title t-heading-m">사용자 맞춤 스케일과 실무 기반 로직</h2>
           <p class="cmp-section__lede t-body-s">
-            디자인 가이드와 코드의 간극을 줄이기 위해 개발자와 공동으로 BEM 기반의 시맨틱 네이밍 체계를 수립.
+            표준 규격 대비 확장된 규칙으로 장애인 사용자의 신체적 제약을 해결하고, 개발자와 함께 BEM 기반의 시맨틱 네이밍과 반응형 스페이싱 로직을 설계하여 제작 효율 달성.
           </p>
         </div>
       </header>
 
-      <!-- S1. BEM 네이밍 테이블 -->
+      <!-- S1. Button 시스템 -->
       <article class="cmp-ds-section">
         <div class="cmp-ds-section__intro">
+          <h3 class="t-body-m-bold">안전한 터치 영역을 위한 Button 시스템</h3>
+          <ul class="cmp-bullet-list">
+            <li class="t-body-s">손 떨림이나 정교한 조작이 어려운 행동 장애 사용자의 조작 성공률을 높이기 위해 버튼 시스템을 업계 표준 대비 1.2배 확장하여 안전한 터치 영역 확보</li>
+            <li class="t-body-s">인지 장애 사용자에게 '클릭할 수 있는 요소'라는 시각적 확신을 주어, 사용자의 판단 시간을 단축시키는 효과</li>
+          </ul>
+        </div>
+
+        <div class="cmp-btn-specs">
+          <div class="cmp-btn-spec">
+            <div class="cmp-btn-spec__figure">
+              <img src="assets/modube/img_button01.png" alt="장애인 사용자 핵심 CTA 예시" />
+            </div>
+            <h4 class="cmp-btn-spec__title t-body-s-bold">
+              장애인 사용자를 위한 핵심 CTA 'btn_core--hasIcon'
+            </h4>
+            <p class="cmp-btn-spec__desc t-body-s">
+              btn_core--hasIcon는 장애인 사용자가 주요 업무에 사용하는 핵심버튼.<br>아이콘과 함께 강한 대비, 크기를 사용하여
+              인지 장애 사용자의 판단 시간을 단축.
+            </p>
+          </div>
+          <div class="cmp-btn-spec">
+            <div class="cmp-btn-spec__figure">
+              <img src="assets/modube/img_button02.png" alt="확장 버튼 예시" />
+            </div>
+            <h4 class="cmp-btn-spec__title t-body-s-bold">
+              클릭 실패 확률을 줄인 버튼시스템 'btn_base' 'btn_compact'
+            </h4>
+            <p class="cmp-btn-spec__desc t-body-s">
+              행동 장애인 사용자를 위해 모든 버튼 크기를 상향 조정하여
+              표준 규격 대비 터치 허용 범위를 20%~30% 확장. 조작 실패 확률을 낮춰 사용자의 업무 편의성을 높임.
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <!-- S2. Responsive + Typography -->
+      <div class="cmp-ds-pair">
+        <article class="cmp-ds-pair__col">
+          <div class="cmp-title-group">
+            <h3 class="cmp-surface__title t-body-m-bold">Responsive</h3>
+          </div>
+          <div class="cmp-spacing-demo">
+            <div class="cmp-spacing-demo__col">
+              <p class="t-sub-bold">고정</p>
+              <p class="t-body-s">4, 8, 16 <span class="cmp-unit">px</span></p>
+            </div>
+            <div class="cmp-spacing-demo__col">
+              <p class="t-sub-bold">변동</p>
+              <div class="cmp-spacing-demo__rw">
+                <div>
+                  <p class="t-sub">pc</p>
+                  <p class="t-body-s">40, 80, 120 <span class="cmp-unit">px</span></p>
+                </div>
+                <div>
+                  <p class="t-sub">mobile</p>
+                  <p class="t-body-s">30, 60, 80 <span class="cmp-unit">px</span></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ul class="cmp-bullet-list">
+            <li class="t-body-s">작업 편의성 : 모바일 반응형 작업 시 퍼블리셔의 리소스를 줄이기 위해 고정여백과 변형 여백 혼용 사용.</li>
+            <li class="t-body-s">장애인 접근성 : 작은 간격을 고정하여, 터치 영역들이 줄어드는것을 방지.</li>
+          </ul>
+        </article>
+
+        <article class="cmp-ds-pair__col">
+          <div class="cmp-title-group">
+            <h3 class="cmp-surface__title t-body-m-bold">Typography &amp; Icon</h3>
+            <p class="cmp-surface__desc t-body-s">장애인 사용자를 위한 '시인성' 확보</p>
+          </div>
+          <div class="cmp-typo-pair">
+            <div class="cmp-typo-pair__col">
+              <p class="t-sub-bold">타이포 (PC = Mobile 통일)</p>
+              <p class="cmp-typo-pair__big t-heading-m">18px</p>
+              <p class="t-body-s">시각 장애 사용자의 인지를 높이기 위해 18px을 기본으로, 16px을 서브로 사용.</p>
+            </div>
+            <div class="cmp-typo-pair__col">
+              <p class="t-sub-bold">아이콘</p>
+              <div class="cmp-typo-pair__icon">
+                <img src="assets/modube/img_ico-size.png" alt="아이콘 사이즈 가이드" />
+                <p class="cmp-typo-pair__big t-heading-m">28px</p>
+              </div>
+              <p class="t-body-s">형태를 명확하게 식별할 수 있도록 Fill 타입 아이콘을 표준으로 사용.</p>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <hr class="cmp-ds-divider" aria-hidden="true" />
+
+      <!-- S3. BEM 네이밍 테이블 -->
+      <article class="cmp-ds-section">
+        <div class="cmp-ds-section__intro cmp-ds-section__intro--row">
+          <div class="cmp-ds-section__intro-text">
+            <h3 class="t-body-m-bold">BEM기반 네이밍 규칙 수립</h3>
+            <p class="cmp-surface__desc t-body-s">디자인 가이드와 코드의 간극을 줄이기 위해 개발자와 공동으로 BEM 기반의 시맨틱 네이밍 체계를 수립</p>
+          </div>
           <code class="cmp-code-badge t-body-s-bold">cmp-input__has-icon/default</code>
         </div>
 
@@ -451,91 +549,6 @@
         </div>
       </article>
 
-      <!-- S2. Button 시스템 -->
-      <article class="cmp-ds-section">
-        <div class="cmp-ds-section__intro">
-          <h3 class="t-body-m-bold">안전한 터치 영역을 위한 Button 시스템</h3>
-        </div>
-
-        <div class="cmp-btn-specs">
-          <div class="cmp-btn-spec">
-            <div class="cmp-btn-spec__figure">
-              <img src="assets/modube/img_button01.png" alt="장애인 사용자 핵심 CTA 예시" />
-            </div>
-            <h4 class="cmp-btn-spec__title t-body-s-bold">
-              장애인 사용자를 위한 핵심 CTA 'btn_core--hasIcon'
-            </h4>
-            <p class="cmp-btn-spec__desc t-body-s">
-              btn_core--hasIcon는 장애인 사용자가 주요 업무에 사용하는 핵심버튼.<br>아이콘과 함께 강한 대비, 크기를 사용하여 
-              인지 장애 사용자의 판단 시간을 단축.
-            </p>
-          </div>
-          <div class="cmp-btn-spec">
-            <div class="cmp-btn-spec__figure">
-              <img src="assets/modube/img_button02.png" alt="확장 버튼 예시" />
-            </div>
-            <h4 class="cmp-btn-spec__title t-body-s-bold">
-              클릭 실패 확률을 줄인 버튼시스템 'btn_base' 'btn_compact'
-            </h4>
-            <p class="cmp-btn-spec__desc t-body-s">
-              행동 장애인 사용자를 위해 모든 버튼 크기를 상향 조정하여
-              표준 규격 대비 터치 허용 범위를 20%~30% 확장. 조작 실패 확률을 낮춰 사용자의 업무 편의성을 높임.
-            </p>
-          </div>
-        </div>
-      </article>
-
-      <!-- S3. Responsive + Typography -->
-      <div class="cmp-ds-pair">
-        <article class="cmp-ds-pair__col">
-          <div class="cmp-title-group">
-            <h3 class="cmp-surface__title t-body-m-bold">Responsive</h3>
-            <p class="cmp-surface__desc t-body-s">
-              반응형 작업 시 퍼블리셔의 리소스를 줄이기 위해 고정 여백과 변형 여백 혼용 사용.
-            </p>
-          </div>
-          <div class="cmp-spacing-demo">
-            <div class="cmp-spacing-demo__col">
-              <p class="t-sub-bold">고정</p>
-              <p class="t-body-s">4, 8, 16 <span class="cmp-unit">px</span></p>
-            </div>
-            <div class="cmp-spacing-demo__col">
-              <p class="t-sub-bold">변동</p>
-              <div class="cmp-spacing-demo__rw">
-                <div>
-                  <p class="t-sub">pc</p>
-                  <p class="t-body-s">40, 80, 120 <span class="cmp-unit">px</span></p>
-                </div>
-                <div>
-                  <p class="t-sub">mobile</p>
-                  <p class="t-body-s">30, 60, 80 <span class="cmp-unit">px</span></p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article class="cmp-ds-pair__col">
-          <div class="cmp-title-group">
-            <h3 class="cmp-surface__title t-body-m-bold">Typography &amp; Icon</h3>
-          </div>
-          <div class="cmp-typo-pair">
-            <div class="cmp-typo-pair__col">
-              <p class="t-sub-bold">타이포 (PC = Mobile 통일)</p>
-              <p class="cmp-typo-pair__big t-heading-m">18px</p>
-              <p class="t-body-s">사용자의 인지를 높이기 위해 18px을 기본으로, 16px을 서브로 사용.</p>
-            </div>
-            <div class="cmp-typo-pair__col">
-              <p class="t-sub-bold">아이콘</p>
-              <div class="cmp-typo-pair__icon">
-                <img src="assets/modube/img_ico-size.png" alt="아이콘 사이즈 가이드" />
-                <p class="cmp-typo-pair__big t-heading-m">28px</p>
-              </div>
-              <p class="t-body-s">형태를 명확하게 식별할 수 있도록 Fill 타입 아이콘을 표준으로 사용.</p>
-            </div>
-          </div>
-        </article>
-      </div>
       </div>
     </section>
 

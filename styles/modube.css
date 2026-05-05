@@ -354,8 +354,21 @@
   border-left: var(--bd-01) solid var(--color-secondary100);
 }
 
+.cmp-ds-divider {
+  border: none;
+  border-top: var(--bd-01) solid var(--color-secondary100);
+  margin: var(--spacing-40) 0;
+}
+
 .cmp-ds-section__intro {
   margin-bottom: var(--spacing-24);
+}
+.cmp-ds-section__intro--row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--spacing-40);
 }
 .cmp-ds-section__intro h3 { margin: 0 0 var(--spacing-08); color: var(--color-secondary900); }
 .cmp-ds-section__intro p  { margin: 0; color: var(--color-secondary500); }
@@ -365,7 +378,7 @@
   align-items: center;
   justify-content: center;
   width: fit-content;
-  margin-inline: auto;
+  margin-inline-start: auto;
   padding: var(--spacing-12) var(--spacing-24);
   border-radius: var(--radius-08);
   background: var(--color-secondary700);

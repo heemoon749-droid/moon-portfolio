@@ -137,21 +137,6 @@
   overflow: hidden;
   height: 389px;
 }
-/* 대각선 스트라이프 오버레이 */
-.cmp-sol-guide__bnr::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: repeating-linear-gradient(
-    -83deg,
-    rgba(255, 255, 255, 0.07) 0,
-    rgba(255, 255, 255, 0.07) 2px,
-    transparent 2px,
-    transparent 64px
-  );
-  z-index: 0;
-  pointer-events: none;
-}
 .cmp-sol-guide__bnr-img {
   position: absolute;
   left: 50%;

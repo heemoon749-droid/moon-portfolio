@@ -28,17 +28,66 @@
 .cmp-section--flat-compact  { background-color: var(--color-white); }
 .cmp-section--flat-compact  { padding-top: var(--spacing-40); }
 .cmp-section--flush         { background-color: transparent; padding-top: 0; }
+.cmp-section--pt-40         { padding-top: var(--spacing-40); }
 
 /* ============================================================
- * Hero — sub 페이지 전용 wrapper (cmp-project-hero__top 대체)
- * + lede 텍스트 (base.css cmp-project-hero__sub 이름 충돌 회피)
+ * Hero — Sub 전용 (중앙 헤더 + 스테이지 + 메타)
  * ============================================================ */
-.cmp-project__sub {
+.cmp-sub-hero {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: var(--spacing-40);
-  align-items: stretch;
-  padding: var(--spacing-24) var(--spacing-40) 0;
+  padding-top: var(--spacing-40);
 }
+.cmp-sub-hero__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-16);
+  text-align: center;
+  max-width: 630px;
+}
+.cmp-sub-hero__title {
+  margin: 0;
+  color: var(--color-secondary900);
+}
+.cmp-sub-hero__desc {
+  margin: 0;
+  color: var(--color-secondary600);
+}
+.cmp-sub-hero__stage {
+  position: relative;
+  width: 100%;
+  border-radius: var(--radius-24);
+  overflow: hidden;
+  background: var(--color-secondary200);
+}
+.cmp-sub-hero__stage img {
+  display: block;
+  width: 100%;
+  height: auto;
+  position: relative;
+  z-index: 1;
+}
+.cmp-sub-hero__meta {
+  position: absolute;
+  bottom: var(--spacing-40);
+  right: var(--spacing-40);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--spacing-04);
+  color: var(--color-secondary900);
+}
+
+/* Sub 히어로 stage 하단 컬러바 — 코랄 대신 중립 gray */
+.cmp-sub .cmp-modube-hero__stage::before {
+  background: var(--color-secondary400);
+}
+
+/* lede 텍스트 (기존 호환) */
 .cmp-hero-lede {
   margin: 0 0 var(--spacing-24);
   color: var(--color-secondary600);
@@ -114,6 +163,9 @@
 .cmp-disney-popup__meta {
   flex: 1;
   min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-08);
 }
 .cmp-disney-popup__visual {
   flex: 1;
@@ -129,7 +181,7 @@
   color: var(--color-secondary900);
 }
 .cmp-disney-popup__lede {
-  margin-bottom: var(--spacing-24);
+  margin: 0;
   color: var(--color-secondary600);
 }
 
@@ -177,7 +229,7 @@
   display: flex;
   flex-direction: row;
   gap: var(--spacing-24);
-  align-items: flex-start;
+  align-items: stretch;
 }
 .cmp-logic-row > .cmp-logic-cards {
   flex: 1;
@@ -192,6 +244,7 @@
 }
 .cmp-logic-row__visual {
   margin: 0;
+  flex: 1;
   border-radius: var(--radius-16);
   overflow: hidden;
   box-shadow: var(--shadow-blur);

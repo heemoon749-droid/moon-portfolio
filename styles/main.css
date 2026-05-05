@@ -546,7 +546,7 @@
 
 [data-theme="dark"] .cmp-gallery__card-no {
   background: rgba(40, 42, 58, 0.7);
-  color: var(--color-secondary200);
+  color: var(--color-secondary700);
 }
 
 .cmp-gallery__card-arrow {

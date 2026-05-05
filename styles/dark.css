@@ -12,6 +12,13 @@
  *   3. Ripple / scroll / hint 등 blend 모드 조정.
  * ============================================================ */
 
+/* ---------- 0. Base text color ----------
+ * body에 color가 없어 다크 surface 위에서 브라우저 기본(검정) 텍스트가 노출됨.
+ * secondary900은 다크에서 #f8f9fa(연한 흰) 로 반전되어 있어 안전. */
+[data-theme="dark"] body {
+  color: var(--color-secondary900);
+}
+
 /* ---------- 1. Token overrides ---------- */
 [data-theme="dark"] {
   /* Surface */
@@ -129,7 +136,19 @@
   color: #ffffff;
 }
 
-/* ---------- 2-2. nebeca 상태 배지 (waiting/success/enrolled) ----------
+/* ---------- 2-2. nebeca target-mood 헤더 — 빨간 배경 위 텍스트 고정 ----------
+ * --color-pure-white 가 다크에서 어두운 surface 로 반전되어 빨간 bg 위 텍스트 안 보임. */
+[data-theme="dark"] .cmp-target-mood__eyebrow,
+[data-theme="dark"] .cmp-target-mood__title {
+  color: #ffffff;
+}
+
+/* ---------- 2-4. nebeca research 카드 텍스트 보정 ----------
+ * 하드코딩된 진한 파랑/빨강이 다크 surface 위에서 안 보임 */
+[data-theme="dark"] .cmp-research-card__good { color: #6b9fff; }
+[data-theme="dark"] .cmp-research-card__bad  { color: #ff6b6b; }
+
+/* ---------- 2-5. nebeca 상태 배지 (waiting / success / enrolled) ----------
  * 하드코딩된 어두운 텍스트를 다크에서도 읽히는 파스텔 톤으로 조정. */
 [data-theme="dark"] .cmp-logic-flow__head--waiting  { background: rgba(249, 168, 37, 0.10); }
 [data-theme="dark"] .cmp-logic-flow__head--success  { background: rgba( 76, 175, 80, 0.10); }
@@ -148,7 +167,18 @@
   color: #ef9a9a;
 }
 
-/* ---------- 2-3. 갤러리 카드 오버레이 텍스트 — 다크 배경 위 흰 글씨 유지 ----------
+/* ---------- 2-3. 유리형 인사이트 플로팅 카드 — modube 기준 통일 ----------
+ * 라이트: rgba(255,255,255,0.7) 흰 유리 / 다크: 어두운 유리 surface 로 전환 */
+[data-theme="dark"] .cmp-visual-note,
+[data-theme="dark"] .cmp-learning-insight,
+[data-theme="dark"] .cmp-nebeca-insight {
+  background: rgba(30, 31, 43, 0.88);
+  border-color: rgba(255, 255, 255, 0.08);
+  color: var(--color-secondary700);
+  box-shadow: var(--shadow-gray);
+}
+
+/* ---------- 2-6. 갤러리 카드 오버레이 텍스트 — 다크 배경 위 흰 글씨 유지 ----------
  * --color-pure-white 가 다크에서 어두운 surface 로 반전되어 보이지 않게 됨. */
 [data-theme="dark"] .cmp-gallery__card-tag,
 [data-theme="dark"] .cmp-gallery__card-title,
