@@ -11,20 +11,281 @@
  */
 
 /* ============================================================
- * Nebeca 전용 오버라이드 (base.css 위에 덧붙임)
+ * Nebeca 전용 오버라이드 (modube.css 위에 덧붙임)
  * ============================================================ */
-.cmp-section--white,
-.cmp-achievement--white-section { background-color: var(--color-white); }
-.cmp-achievement--white-section > * {
-  max-width: var(--sz-1280);
+
+/* 히어로 스테이지 하단 패널 — modube 초록 대신 Active Red 적용 */
+.cmp-nebeca .cmp-modube-hero__stage::before {
+  background: #ec4741;
+}
+
+/* ============================================================
+ * Hero — 인사이트 플로팅 카드 (글라스모피즘)
+ * ============================================================ */
+.cmp-nebeca-insight {
+  position: absolute;
+  left: 20%;
+  bottom: 26%;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.7);
+  border: var(--bd-02) solid var(--color-pure-white);
+  border-radius: var(--radius-16);
+  padding: var(--spacing-16) var(--spacing-24);
+  box-shadow: 20px 20px 20px rgba(224, 122, 95, 0.08);
+  color: var(--color-secondary900);
+  max-width: 280px;
+}
+
+/* ============================================================
+ * Research — 유사서비스 사례분석 카드
+ * ============================================================ */
+.cmp-research-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-40);
+  margin-bottom: var(--spacing-40);
+}
+.cmp-research-card {
+  background: var(--color-pure-white);
+  border-radius: var(--radius-24);
+  box-shadow: var(--shadow-gray);
+  padding: var(--spacing-24);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-08);
+}
+.cmp-research-card__head {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--spacing-08);
+  margin-bottom: var(--spacing-08);
+}
+.cmp-research-card__logo {
+  width: 48px;
+  height: 39px;
+  flex-shrink: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+.cmp-research-card__logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.cmp-research-card p { margin: 0; }
+.cmp-research-card__good { color: #003cff; }
+.cmp-research-card__bad  { color: #ff3500; margin-top: var(--spacing-08); }
+
+/* 서비스 문제점 */
+.cmp-research-problems {
+  border-top: var(--bd-01) solid var(--color-secondary100);
+  padding-top: var(--spacing-24);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+}
+.cmp-research-problems__label {
+  color: var(--color-secondary700);
+  margin: 0;
+}
+
+/* ============================================================
+ * Solution Guide — 3카드 + 빨간 배너
+ * ============================================================ */
+.cmp-sol-guide__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-24);
+  margin-bottom: var(--spacing-40);
+}
+.cmp-sol-guide__card {
+  background: var(--color-pure-white);
+  border-radius: var(--radius-24);
+  padding: var(--spacing-24);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-16);
+}
+.cmp-sol-guide__card-img {
+  width: 100%;
+  height: 214px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.cmp-sol-guide__card-img img {
+  height: 90%;
+  width: auto;
+  object-fit: contain;
+}
+.cmp-sol-guide__card-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-08);
+  width: 100%;
+}
+.cmp-sol-guide__card-body p { margin: 0; }
+.cmp-sol-guide__card-body .t-body-s { color: var(--color-secondary700); }
+
+/* 빨간 배너 */
+.cmp-sol-guide__bnr {
+  position: relative;
+  border-radius: var(--radius-24);
+  overflow: hidden;
+  height: 389px;
+}
+/* 대각선 스트라이프 오버레이 */
+.cmp-sol-guide__bnr::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    -83deg,
+    rgba(255, 255, 255, 0.07) 0,
+    rgba(255, 255, 255, 0.07) 2px,
+    transparent 2px,
+    transparent 64px
+  );
+  z-index: 0;
+  pointer-events: none;
+}
+.cmp-sol-guide__bnr-img {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  height: 100%;
+  width: auto;
+  object-fit: contain;
+  z-index: 1;
+}
+/* 배너 내 인사이트 카드 */
+.cmp-sol-guide__insight {
+  position: absolute;
+  z-index: 2;
+  background: rgba(255, 255, 255, 0.7);
+  border: var(--bd-02) solid var(--color-pure-white);
+  border-radius: var(--radius-16);
+  padding: var(--spacing-16) var(--spacing-24);
+  box-shadow: 20px 20px 20px rgba(224, 122, 95, 0.08);
+  color: var(--color-secondary900);
+  max-width: 320px;
+}
+.cmp-sol-guide__insight--left {
+  left: 7%;
+  bottom: var(--spacing-40);
+}
+.cmp-sol-guide__insight--right {
+  right: 7%;
+  top: var(--spacing-40);
+  text-align: right;
+}
+
+/* ============================================================
+ * Target Mood — 2컬럼 레이아웃
+ * ============================================================ */
+.cmp-target-mood {
+  background: #ec4741;
+  border-radius: var(--radius-24);
+  padding: var(--spacing-80) var(--spacing-40);
+  display: flex;
+  gap: var(--spacing-40);
+  align-items: flex-start;
+}
+.cmp-target-mood__left {
+  width: 319px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--spacing-24);
+}
+.cmp-target-mood__right {
+  flex: 1;
+  min-width: 0;
+}
+.cmp-target-mood__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+  width: 100%;
+}
+.cmp-target-mood__eyebrow {
+  color: var(--color-pure-white);
+  opacity: 0.8;
+}
+.cmp-target-mood__title {
+  margin: 0;
+  color: var(--color-pure-white);
+}
+.cmp-target-mood__card {
+  background: var(--color-pure-white);
+  border-radius: var(--radius-24);
+  padding: var(--spacing-24);
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-08);
+  overflow: hidden;
+}
+.cmp-target-mood__card p { margin: 0; }
+.cmp-target-mood__card .t-body-s { color: var(--color-secondary700); }
+.cmp-target-accent { color: var(--color-primary500); font-weight: 600; }
+
+/* 컬러 팔레트 바 */
+.cmp-target-palette {
+  display: flex;
+  height: 66px;
+  border-radius: var(--radius-08);
+  overflow: hidden;
+  width: 100%;
+  margin-bottom: var(--spacing-08);
+}
+.cmp-target-palette__bar { flex: 1; }
+.cmp-target-palette__bar--divider { background: #c8ddf7; flex: 0.3; }
+
+/* iPad 목업 */
+.cmp-target-mockup {
+  position: relative;
+  max-width: 720px;
   margin-inline: auto;
-  padding-inline: var(--spacing-40);
 }
-.cmp-project-hero__role a {
-  color: #ec4741;
-  font-weight: 600;
+.cmp-target-mockup__frame {
+  display: block;
+  width: 100%;
+  height: auto;
+  position: relative;
+  z-index: 2;
+  pointer-events: none;
+  user-select: none;
 }
-.cmp-project-hero__role a:hover { text-decoration: underline; }
+.cmp-target-mockup__screen {
+  position: absolute;
+  top: 3%;
+  left: 3%;
+  right: 4%;
+  bottom: 2.5%;
+  border-radius: var(--radius-08);
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 1;
+  background: var(--color-pure-white);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(236, 71, 65, 0.3) transparent;
+}
+.cmp-target-mockup__screen::-webkit-scrollbar { width: 4px; }
+.cmp-target-mockup__screen::-webkit-scrollbar-thumb {
+  background: rgba(236, 71, 65, 0.3);
+  border-radius: 2px;
+}
+.cmp-target-mockup__screen img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
 
 /* ============================================================
  * Visual Strategy — 목업 + 로고 쇼케이스
@@ -46,10 +307,10 @@
 .cmp-device-mockup__screen {
   position: absolute;
   z-index: 0;
-  top: 5.2%;
-  left: 11.5%;
-  right: 11.5%;
-  bottom: 32%;
+  top: 4%;
+  left: 7%;
+  right: 7%;
+  bottom: 28%;
   overflow-y: auto;
   overflow-x: hidden;
   border-radius: var(--radius-04);
@@ -148,9 +409,6 @@
 /* ============================================================
  * AI Workflow — Pipeline
  * ============================================================ */
-.cmp-nebeca-ai {
-  background-color: var(--color-pure-white);
-}
 
 /* Pipeline 4 steps */
 .cmp-pipeline {
@@ -210,7 +468,7 @@
   display: flex;
   flex-direction: column;
   gap: var(--spacing-16);
-  margin-bottom: var(--spacing-80);
+  margin-bottom: var(--spacing-40);
 }
 .cmp-ux-block:last-child {
   margin-bottom: 0;
@@ -310,6 +568,130 @@
   background: var(--color-secondary300);
   align-self: center;
   margin-top: 20px;
+}
+
+/* Journey Flow — 사용자 이동 경로 (간소화 버전) */
+.cmp-journey-flow {
+  display: flex;
+  align-items: stretch;
+  gap: 0;
+  padding: var(--spacing-24) 0;
+}
+.cmp-journey-flow__step {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-08);
+  padding: var(--spacing-16) var(--spacing-12);
+  border-radius: var(--radius-16);
+  background: var(--color-pure-white);
+  border: var(--bd-02) solid var(--color-secondary100);
+  text-align: center;
+}
+.cmp-journey-flow__step--final {
+  border-color: rgba(236, 71, 65, 0.3);
+  background: rgba(236, 71, 65, 0.04);
+}
+.cmp-journey-flow__platform {
+  display: inline-block;
+  padding: 2px var(--spacing-08);
+  border-radius: 100px;
+  font-size: 11px;
+}
+.cmp-journey-flow__platform--own {
+  background: rgba(236, 71, 65, 0.1);
+  color: #ec4741;
+}
+.cmp-journey-flow__platform--gov {
+  background: rgba(0, 60, 255, 0.08);
+  color: #003cff;
+}
+.cmp-journey-flow__platform--done {
+  background: rgba(236, 71, 65, 0.15);
+  color: #ec4741;
+}
+.cmp-journey-flow__connector {
+  flex-shrink: 0;
+  width: 80px;
+  height: 2px;
+  align-self: center;
+  background: var(--color-secondary200);
+  position: relative;
+  align-self: center;
+}
+.cmp-journey-flow__connector::after {
+  content: '';
+  position: absolute;
+  right: -1px;
+  top: -4px;
+  border: 5px solid transparent;
+  border-left-color: var(--color-secondary300);
+  border-right-width: 0;
+}
+.cmp-journey-flow__connector-note {
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-size: 11px;
+  line-height: 1.4;
+  color: var(--color-secondary400);
+}
+.cmp-journey-flow__badge {
+  display: inline-block;
+  padding: 2px var(--spacing-08);
+  border-radius: 100px;
+  font-size: 11px;
+}
+.cmp-journey-flow__badge--waiting {
+  background: rgba(0, 0, 0, 0.06);
+  color: var(--color-secondary500);
+}
+.cmp-journey-flow__badge--ready {
+  background: rgba(0, 180, 80, 0.12);
+  color: #00874a;
+}
+.cmp-journey-flow__badge--guide {
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--color-secondary400);
+}
+.cmp-journey-flow__action {
+  margin: 0;
+  color: var(--color-secondary900);
+}
+.cmp-journey-flow__arrow {
+  flex-shrink: 0;
+  width: 80px;
+  height: 2px;
+  background: var(--color-secondary200);
+  position: relative;
+  align-self: center;
+}
+.cmp-journey-flow__arrow::after {
+  content: '';
+  position: absolute;
+  right: -1px;
+  top: -4px;
+  border: 5px solid transparent;
+  border-left-color: var(--color-secondary300);
+  border-right-width: 0;
+}
+
+/* ============================================================
+ * Banner — 풀 너비 이미지 (패딩·마진 없음)
+ * ============================================================ */
+.cmp-bnr-full {
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+}
+.cmp-bnr-full img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 /* ============================================================

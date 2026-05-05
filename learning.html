@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="styles/tokens.css" />
   <link rel="stylesheet" href="styles/typography.css" />
   <link rel="stylesheet" href="styles/base.css" />
+  <link rel="stylesheet" href="styles/modube.css" />
   <link rel="stylesheet" href="styles/learning.css" />
   <link rel="stylesheet" href="styles/dark.css" />
 </head>
@@ -17,160 +18,195 @@
   data-layout="project"
   data-page-sub="정보 구조 우선순위 재배치를 통한 CS 억제 리뉴얼"
   data-page-title="모두의러닝"
+  data-prev-href="nebeca.html"
+  data-prev-label="이전 프로젝트 — 내일배움카드"
   data-next-href="sub.html"
   data-next-label="다음 프로젝트 — 사이드 프로젝트">
 
   <main class="cmp-portfolio">
 
     <!-- ============================================================
-         1. Project Hero
+         1. Hero — modube 스타일
          ============================================================ -->
     <section class="cmp-project-hero cmp-section-spacing" aria-label="프로젝트 개요">
-      <div class="cmp-project-hero__top">
 
-        <div class="cmp-project-hero__meta">
-          <div class="cmp-project-hero__title-group">
-            <h1 class="cmp-project-hero__title t-heading-m">모두의러닝</h1>
-            <p class="cmp-project-hero__sub t-body-s">
-              노출형 정보 구조 설계와<br>문제해결 방법 우선순위 재배치를 통한 CS 억제
-            </p>
-            <div class="cmp-tag-row">
-              <span class="cmp-tag t-sub-bold">UI/UX</span>
-              <span class="cmp-tag t-sub-bold">Renewal</span>
-              <span class="cmp-tag t-sub-bold">UX 플로우설계</span>
-              <span class="cmp-tag t-sub-bold">사용성 개선</span>
-            </div>
+      <div class="cmp-modube-hero__title-wrap">
+        <div class="cmp-tag-row">
+          <span class="cmp-tag t-sub-bold">UI/UX</span>
+          <span class="cmp-tag t-sub-bold">Renewal</span>
+          <span class="cmp-tag t-sub-bold">UX 플로우설계</span>
+          <span class="cmp-tag t-sub-bold">사용성 개선</span>
+        </div>
+        <h1 class="cmp-project-hero__title t-heading-l">모두의러닝</h1>
+        <p class="cmp-project-hero__sub t-body-s">노출형 정보 구조 설계와 문제해결 방법 우선순위 재배치를 통한 CS 억제</p>
+      </div>
+
+      <div class="cmp-modube-hero__stage">
+        <img src="assets/learning/img_hero.png" data-src-dark="assets/learning/img_hero-dark.png" alt="모두의러닝 리뉴얼 메인 화면" />
+        <div class="cmp-learning-insight t-body-s-bold">
+          보이지 않는 정보가 만든 CS 과부하.<br>정보 구조 수평화로 운영 비용을 줄이다.
+        </div>
+        <div class="cmp-modube-hero__meta">
+          <div class="cmp-modube-hero__meta-right">
+            <p class="t-sub">디자인 · 퍼블리싱 · 개발 · 운영 4인 팀</p>
+            <p class="t-sub-bold">UX Planning &amp; UI Design</p>
           </div>
-
-          <div class="cmp-project-hero__role">
-            <p class="t-sub-bold">디자인 · 퍼블리싱 · 개발 · 운영 4인 팀</p>
-            <p class="t-sub-bold">역할 : UX Planning · UI Design</p>
-            <p class="t-sub">
-              강의 정보 구조 재설계 및 '자가 해결-온라인 상담-유선'으로<br>
-              이어지는 CS 필터링 UX 플로우설계 및 디자인.
-            </p>
-            <p class="cmp-project-hero__role-label t-sub-bold">사용 툴</p>
-            <div class="cmp-tool-row" aria-label="사용 툴">
-              <span class="cmp-tool" title="Figma"><img src="assets/ico_figma.png" alt="Figma" /></span>
-              <span class="cmp-tool" title="Gemini"><img src="assets/ico_geminai.png" alt="Gemini" /></span>
-            </div>
+          <div class="cmp-tool-row" aria-label="사용 툴">
+            <span class="cmp-tool" title="Figma"><img src="assets/ico_figma.png" alt="Figma" /></span>
+            <span class="cmp-tool" title="Gemini"><img src="assets/ico_geminai.png" alt="Gemini" /></span>
           </div>
         </div>
-
-        <div class="cmp-project-hero__visual">
-          <img src="assets/learning/img_hero.png" data-src-dark="assets/learning/img_hero-dark.png" alt="모두의러닝 리뉴얼 메인 화면" />
-        </div>
       </div>
 
-      <div class="cmp-project-hero__background">
-        <h2 class="cmp-project-hero__bg-title t-body-m-bold">
-          보이지 않는 정보가 만든 CS 과부하.
-        </h2>
-        <ul class="cmp-bullet-list t-body-s">
-          <li><strong>배경</strong> : 40-60대 사용자가 주를 이루는 환경에서, 숨겨진 메뉴 구조인 LNB가 인지 부하를 만들어 CS 문의 폭주로 이어짐.</li>
-          <li><strong>문제점</strong> : 원하는 강의나 메뉴를 찾지 못해 발생하는 '단순 위치 문의' 전화가 CS 업무의 대부분을 차지하여 운영 효율 저하.</li>
-          <li><strong>사용자가 즉각적으로 인지할 수 있도록 정보 구조를 정리하고, 퀵 메뉴 및 플로팅 우선순위를 재배치하여 CS 인입 최소화.</strong></li>
-        </ul>
+      <div class="cmp-scroll-hint" aria-hidden="true">
+        <svg width="24" height="36" viewBox="0 0 24 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path class="cmp-scroll-hint__path" d="M6 3L12 9L18 3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path class="cmp-scroll-hint__path" d="M6 13L12 19L18 13" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path class="cmp-scroll-hint__path" d="M6 23L12 29L18 23" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+
+    </section>
+
+    <!-- ============================================================
+         2. Background — 배경 & 문제점
+         ============================================================ -->
+    <section class="cmp-section cmp-section--no-bg is-reveal" aria-label="프로젝트 배경">
+      <div class="cmp-history-card">
+
+        <header class="cmp-section__header cmp-section__header--center">
+          <span class="cmp-history-eyebrow t-sub-bold">Background</span>
+          <h2 class="cmp-section__title t-heading-m">보이지 않는 정보가 만든 CS 과부하.</h2>
+          <p class="cmp-section__lede t-body-s">
+            사용자가 즉각적으로 인지할 수 있도록 정보 구조를 정리하고,<br>퀵 메뉴 및 플로팅 우선순위를 재배치하여 CS 인입 최소화.
+          </p>
+        </header>
+
+        <div class="cmp-learning-bg-grid">
+          <div class="cmp-learning-bg-card">
+            <p class="cmp-learning-bg-card__label t-sub-bold">배경</p>
+            <p class="t-body-s">40-60대 사용자가 주를 이루는 환경에서, 숨겨진 메뉴 구조인 LNB가 인지 부하를 만들어 CS 문의 폭주로 이어짐.</p>
+          </div>
+          <div class="cmp-learning-bg-card">
+            <p class="cmp-learning-bg-card__label t-sub-bold">문제점</p>
+            <p class="t-body-s">원하는 강의나 메뉴를 찾지 못해 발생하는 '단순 위치 문의' 전화가 CS 업무의 대부분을 차지하여 운영 효율 저하.</p>
+          </div>
+          <div class="cmp-learning-bg-card cmp-learning-bg-card--goal">
+            <p class="cmp-learning-bg-card__label t-sub-bold">목표</p>
+            <p class="t-body-s">정보 구조를 정리하고, 퀵 메뉴 및 플로팅 우선순위를 재배치하여 CS 인입 최소화.</p>
+          </div>
+        </div>
+
       </div>
     </section>
 
     <!-- ============================================================
-         2. Core Features — 퀵메뉴 & 플로팅 상시 애니메이션 스테이지
+         3. Core Features — 퀵메뉴 & 플로팅 상시 애니메이션 스테이지
          ============================================================ -->
-    <section class="cmp-section cmp-section--flat is-reveal" aria-label="Core Features">
+    <section class="cmp-section cmp-section--no-bg is-reveal" aria-label="Core Features">
+
+        <header class="cmp-section__header cmp-section__header--center">
+          <span class="cmp-history-eyebrow t-sub-bold">Core Features</span>
+          <h2 class="cmp-section__title t-heading-m">자가 해결을 유도하는 지원 경로 설계</h2>
+          <p class="cmp-section__lede t-body-s">
+            전화문의 전 사용자가 스스로 해결 할 수 있도록 우선순위를 설계하여, 단순 문의성 유선 상담을 차단.
+          </p>
+        </header>
+
+        <!-- 노트북 목업 -->
+        <div class="cmp-notebook-mockup">
+          <img class="cmp-notebook-mockup__frame" src="assets/learning/img_notebook02.png" alt="" aria-hidden="true" />
+          <div class="cmp-notebook-mockup__scroll" tabindex="0" aria-label="페이지 미리보기 스크롤 영역">
+            <img src="assets/learning/img_main-number.png" alt="모두의러닝 리뉴얼 전체 페이지 미리보기" />
+          </div>
+          <img class="cmp-notebook-mockup__hint" src="assets/user-dashboard-tag.png" alt="" aria-hidden="true" />
+        </div>
+
+        <!-- 플로팅 솔루션 경로 -->
+        <ol class="cmp-step-row">
+          <li class="cmp-step-row__step cmp-step-row__step--intro">
+            <h4 class="cmp-step-row__title t-body-m-bold">자가 해결 유도 우선순위</h4>
+            <p class="cmp-step-row__desc t-body-s">자가 해결 버튼섹션으로 유도 ⇢ 원격 능동 지원 ⇢ 비대면 상담 ⇢ 유선 지원 순서의 위계 시각화.</p>
+          </li>
+          <li class="cmp-step-row__step">
+            <span class="cmp-step-row__badge">
+              <span class="cmp-step-row__num t-body-s">1</span>
+            </span>
+            <h4 class="cmp-step-row__title t-body-s-bold">학습장애 해결-문제해결섹션 스크롤 이동</h4>
+            <figure class="cmp-step-row__thumb">
+              <img src="assets/learning/img_acodian.png" alt="학습장애 해결 단계" />
+            </figure>
+            <p class="cmp-step-row__desc t-body-s">클릭 시 푸터에 있는 아코디언 문제해결 버튼 섹션으로 스크롤 이동하여 자주 묻는 문제를 직접 해결하도록 유도.</p>
+          </li>
+          <li class="cmp-step-row__step">
+            <span class="cmp-step-row__badge">
+              <span class="cmp-step-row__num t-body-s">5</span>
+            </span>
+            <h4 class="cmp-step-row__title t-body-s-bold">전화 문의 시도-번호안내블럭 스크롤이동</h4>
+            <figure class="cmp-step-row__thumb">
+              <img src="assets/learning/img_call.png" alt="유선 상담 단계" />
+            </figure>
+            <p class="cmp-step-row__desc t-body-s">버튼 클릭시 번호안내블럭으로 스크롤 이동, 푸터의 문제 해결 버튼 섹션도 함께 열려 해결버튼을 인지시킴.</p>
+          </li>
+          <li class="cmp-step-row__step">
+            <span class="cmp-step-row__badge">
+              <span class="cmp-step-row__num t-body-s">5</span>
+            </span>
+            <h4 class="cmp-step-row__title t-body-s-bold">전화 연결-퀵버튼 좌우배치</h4>
+            <figure class="cmp-step-row__thumb">
+              <img src="assets/learning/img_quick.png" alt="유선 상담 단계" />
+            </figure>
+            <p class="cmp-step-row__desc t-body-s">가장 문의가 많은 강의 리스트와 나의강의실을 '첫번째' 혹은 '마지막'같은 안내로 빠르게 해결할수 있도록 양 끝에 배치.</p>
+          </li>
+        </ol>
+
+    </section>
+
+    <!-- ============================================================
+         4. Information Architecture — 메가메뉴 전략
+         ============================================================ -->
+    <section class="cmp-section cmp-section--white is-reveal" aria-label="Mega-Menu Strategy">
+
+        <header class="cmp-section__header cmp-section__header--center">
+          <span class="cmp-history-eyebrow t-sub-bold">Information Architecture</span>
+          <h2 class="cmp-section__title t-heading-m">노출형 교육컨텐츠 GNB 드롭다운으로 사용성 개선</h2>
+          <p class="cmp-section__lede t-body-s">
+            기존의 3댑스 강의 카테고리를 버리고 노출형 리스트 UI 로 카테고리 재배치.<br>
+            모든 하위 카테고리가 한눈에 펼쳐지는 메가메뉴를 도입하여 즉각적인 인지 유도.
+          </p>
+        </header>
+
+        <img class="cmp-megamenu-visual" src="assets/learning/img_contents.png" alt="모두의러닝 메가메뉴" />
+
+    </section>
+
+    <!-- ============================================================
+         5. Visual — 반응형을 위한 카드형 UI
+         ============================================================ -->
+    <section class="cmp-section cmp-section--no-bg is-reveal" aria-label="Visual">
+
       <header class="cmp-section__header cmp-section__header--center">
-        <span class="t-eyebrow">Core Features</span>
-        <h2 class="cmp-section__title t-heading-m">자가 해결을 유도하는 지원 경로 설계</h2>
-        <p class="cmp-section__lede t-body-s">
-          전화문의 전 사용자가 스스로 해결 할 수 있도록 우선순위를 설계하여, 단순 문의성 유선 상담을 차단.
-        </p>
+        <span class="cmp-history-eyebrow t-sub-bold">Visual</span>
+        <h2 class="cmp-section__title t-heading-m">반응형을 위한 카드형 UI</h2>
+        <p class="cmp-section__lede t-body-s">적응형으로 되어있는 사이트를 추후 반응형 작업을 하기위해 카드형 UI로 변경.</p>
       </header>
 
-      <!-- 노트북 목업 -->
-      <div class="cmp-notebook-mockup">
-        <img class="cmp-notebook-mockup__frame" src="assets/learning/img_notebook02.png" alt="" aria-hidden="true" />
-        <div class="cmp-notebook-mockup__scroll" tabindex="0" aria-label="페이지 미리보기 스크롤 영역">
-          <img src="assets/learning/img_main-number.png" alt="모두의러닝 리뉴얼 전체 페이지 미리보기" />
-        </div>
-        <img class="cmp-notebook-mockup__hint" src="assets/user-dashboard-tag.png" alt="" aria-hidden="true" />
+      <div class="cmp-visual-mockup">
+        <img src="assets/learning/img_mockup-contents.png" alt="모두의러닝 카드형 UI 목업" />
       </div>
 
-      <!-- 5단계 플로팅 솔루션 경로 -->
-      <ol class="cmp-step-row">
-        <li class="cmp-step-row__step cmp-step-row__step--intro">
-          <h4 class="cmp-step-row__title t-body-m-bold">자가 해결 유도 우선순위</h4>
-          <p class="cmp-step-row__desc t-body-s">자가 해결 버튼섹션으로 유도 ⇢ 원격 능동 지원 ⇢ 비대면 상담 ⇢ 유선 지원 순서의 위계 시각화.</p>
-        </li>
-        <li class="cmp-step-row__step">
-          <span class="cmp-step-row__badge">
-            <span class="cmp-step-row__num t-body-s">1</span>
-          </span>
-          <h4 class="cmp-step-row__title t-body-s-bold">학습장애 해결-문제해결섹션 스크롤 이동</h4>
-          <figure class="cmp-step-row__thumb">
-            <img src="assets/learning/img_acodian.png" alt="학습장애 해결 단계" />
-          </figure>
-          <p class="cmp-step-row__desc t-body-s">클릭 시 푸터에 있는 아코디언 문제해결 버튼 섹션으로 스크롤 이동하여 자주 묻는 문제를 직접 해결하도록 유도.</p>
-        </li>
-        <li class="cmp-step-row__step">
-          <span class="cmp-step-row__badge">
-            <span class="cmp-step-row__num t-body-s">5</span>
-          </span>
-          <h4 class="cmp-step-row__title t-body-s-bold">전화 문의 시도-번호안내블럭 스크롤이동</h4>
-          <figure class="cmp-step-row__thumb">
-            <img src="assets/learning/img_call.png" alt="유선 상담 단계" />
-          </figure>
-          <p class="cmp-step-row__desc t-body-s">버튼 클릭시 번호안내블럭으로 스크롤 이동, 푸터의 문제 해결 버튼 섹션도 함께 열려 해결버튼을 인지시킴.<br></p>
-        </li>
-        <li class="cmp-step-row__step">
-          <span class="cmp-step-row__badge">
-            <span class="cmp-step-row__num t-body-s">5</span>
-          </span>
-          <h4 class="cmp-step-row__title t-body-s-bold">전화 연결-퀵버튼 좌우배치</h4>
-          <figure class="cmp-step-row__thumb">
-            <img src="assets/learning/img_quick.png" alt="유선 상담 단계" />
-          </figure>
-          <p class="cmp-step-row__desc t-body-s">가장 문의가 많은 강의 리스트와 
-            나의강의실을 '첫번째' 혹은 '마지막'같은 안내로 빠르게 해결할수 있도록 양 끝에 배치.</p>
-        </li>
-      </ol>
+      <div class="cmp-visual-compare">
+        <img src="assets/learning/img_mockup-contents02.png" alt="기존 강의 목록 화면" />
+      </div>
+
     </section>
 
     <!-- ============================================================
-         3a. IA — Mega-Menu Strategy (강의 SNB 전면 노출)
+         6. Achievement
          ============================================================ -->
-    <section class="cmp-section is-reveal" aria-label="Mega-Menu Strategy">
-      <header class="cmp-section__header cmp-section__header--center">
-        <span class="t-eyebrow">Information Architecture</span>
-        <h2 class="cmp-section__title t-heading-m">노출형 교육컨텐츠 GNB 드롭다운으로 사용성 개선</h2>
-        <p class="cmp-section__lede t-body-s">
-          기존의 3댑스 강의 카테고리를 버리고 노출형 리스트 UI 로 카테고리 재배치.<br> 
-          모든 하위 카테고리가 한눈에 펼쳐지는 메가메뉴를 도입하여 즉각적인 인지 유도.
-        </p>
-      </header>
-
-      <img class="cmp-megamenu-visual" src="assets/learning/img_contents.png" alt="모두의러닝 메가메뉴">
-
-      <!-- 강의 상세/목록 비교 -->
-      <div class="cmp-ba-stack">
-        <div class="cmp-ba-stack__pair">
-          <figure class="cmp-ba-stack__panel">
-            <img src="assets/learning/img_lecture-old.jpg" alt="기존 강의 페이지" />
-            <figcaption class="t-caption">Before</figcaption>
-          </figure>
-          <figure class="cmp-ba-stack__panel">
-            <img src="assets/learning/img_lecture-new.jpg" alt="리뉴얼 강의 페이지" />
-            <figcaption class="t-caption">After</figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============================================================
-         4. Achievement
-         ============================================================ -->
-    <section class="cmp-achievement cmp-achievement--flat-section is-reveal" aria-label="Achievement">
+    <section class="cmp-achievement cmp-section cmp-section--white cmp-section--no-mb is-reveal" aria-label="Achievement">
       <header class="cmp-achievement__header">
-        <span class="t-eyebrow">Achievement</span>
+        <span class="cmp-history-eyebrow t-sub-bold">Achievement</span>
         <span class="cmp-achievement__rule" aria-hidden="true"></span>
       </header>
 
@@ -178,12 +214,11 @@
         <article>
           <h3 class="t-body-m-bold"><strong class="cmp-learning-metric">60% → 18%</strong> 위치 문의 CS 감소</h3>
           <p class="t-body-s">
-            정보 위치를 묻는 단순 안내 문의가 CS 전화량을
-            60%가량 낮춘 것으로 추정.
+            정보 위치를 묻는 단순 안내 문의가 CS 전화량을 60%가량 낮춘 것으로 추정.
           </p>
         </article>
         <article>
-          <h3 class="t-body-m-bold">메뉴 탐색 뎁스 <strong class="cmp-learning-metric"> 70% 단축</strong></h3>
+          <h3 class="t-body-m-bold">메뉴 탐색 뎁스 <strong class="cmp-learning-metric">70% 단축</strong></h3>
           <p class="t-body-s">
             숨겨진 SNB 구조를 GNB 노출형으로 재배치하여 정보 탐색 깊이를
             <strong>3 Depth → 1 Depth</strong> 로 단축. 메뉴 도달 클릭 수를 1/3 로 축소.
