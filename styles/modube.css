@@ -7,11 +7,6 @@
  * base.css 에 정의되어 있음.
  * ============================================================ */
 
-/* Visual 섹션 — 이원화 UI (배경 별도) */
-.cmp-section-visual {
-  padding-top: var(--spacing-80);
-  padding-bottom: var(--spacing-80);
-}
 .cmp-title-group {
   display: flex;
   flex-direction: column;
@@ -19,7 +14,200 @@
 }
 
 /* ============================================================
- * 2. Brand Foundation — 2×2 surface grid
+ * 2. History — 니즈 조사 및 유사서비스 사례분석
+ * ============================================================ */
+.cmp-history-card {
+  background: var(--color-pure-white);
+  border-radius: var(--radius-24);
+  box-shadow: var(--shadow-gray);
+  padding: var(--spacing-40);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-08);
+}
+
+/* Eyebrow pill */
+.cmp-history-eyebrow {
+  display: inline-block;
+  background: var(--color-primary100);
+  color: var(--color-primary600);
+  border-radius: var(--radius-pill);
+  padding: var(--spacing-04) var(--spacing-16);
+}
+
+.cmp-history-sub {
+  margin-top: 0;
+  margin-bottom: 0;
+  color: var(--color-secondary600);
+  text-align: center;
+  line-height: 1.6;
+}
+
+/* 3-column grid */
+.cmp-history-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-24);
+  align-items: stretch;
+}
+
+.cmp-history-col {
+  background: var(--color-secondary50);
+  border-radius: var(--radius-16);
+  padding: var(--spacing-24);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+}
+
+.cmp-history-col--center {
+  background: var(--color-pure-white);
+  box-shadow: var(--shadow-gray);
+}
+
+.cmp-history-col__q {
+  margin: 0;
+  color: var(--color-secondary400);
+}
+
+/* Brand row */
+.cmp-history-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-08);
+}
+.cmp-history-brand img { height: 28px; width: auto; object-fit: contain; }
+.cmp-history-brand span { color: var(--color-secondary900); }
+
+/* Highlight pill */
+.cmp-history-pill {
+  display: inline-block;
+  background: var(--color-primary100);
+  color: var(--color-primary600);
+  border-radius: var(--radius-pill);
+  padding: var(--spacing-04) var(--spacing-16);
+  align-self: flex-start;
+}
+
+/* Pain point list */
+.cmp-history-needs {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-08);
+}
+.cmp-history-need {
+  padding: var(--spacing-08) var(--spacing-12);
+  border-radius: var(--radius-08);
+  background: var(--color-pure-white);
+  line-height: 1.5;
+}
+.cmp-history-need--coral { color: var(--color-secondary700); }
+
+/* GOOD / BAD verdict */
+.cmp-history-verdict {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-12);
+}
+.cmp-history-verdict__row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-08);
+}
+.cmp-history-verdict__label { display: block; }
+.cmp-history-verdict__label--good { color: #003cff; }
+.cmp-history-verdict__label--bad  { color: #ff3500; }
+.cmp-history-verdict__list {
+  margin: 0;
+  padding-left: var(--spacing-16);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-04);
+  color: var(--color-secondary600);
+}
+.cmp-history-verdict__list li { line-height: 1.5; }
+
+/* ============================================================
+ * 3. Solution — SaaS 전환 기능 섹션
+ * ============================================================ */
+
+.cmp-solution-card {
+  padding: var(--spacing-40);
+}
+
+.cmp-solution__desc {
+  margin: var(--spacing-04) auto 0;
+  color: var(--color-secondary700);
+  text-align: center;
+  max-width: 380px;
+}
+
+.cmp-solution__banner {
+  border-radius: var(--radius-16);
+  overflow: hidden;
+  height: 337px;
+}
+
+.cmp-solution__banner img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.cmp-solution__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-24);
+  margin-bottom: var(--spacing-40);
+}
+
+.cmp-solution__feat {
+  background: var(--color-white);
+  border-radius: var(--radius-24);
+  border: var(--bd-01) solid var(--color-primary400);
+  box-shadow: var(--shadow-gray);
+  padding: var(--spacing-24);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-16);
+}
+
+.cmp-solution__feat-img {
+  border-radius: var(--radius-16);
+  overflow: hidden;
+  height: 131px;
+}
+
+.cmp-solution__feat-img img,
+.cmp-solution__feat-img svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+.cmp-solution__feat-body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-04);
+}
+
+.cmp-solution__feat-title {
+  margin: 0;
+  color: var(--color-secondary900);
+}
+
+.cmp-solution__feat-desc {
+  margin: 0;
+  color: var(--color-secondary600);
+}
+
+/* ============================================================
+ * 4. Brand Foundation — 2×2 surface grid
  * ============================================================ */
 .cmp-foundation-set {
   display: grid;
@@ -55,11 +243,14 @@
 
 .cmp-logo-figure { min-height: 50px; justify-content: flex-start; }
 
+.cmp-surface .cmp-title-group {
+  margin-bottom: var(--spacing-16);
+}
+
 .cmp-digital-rules {
   display: flex;
   align-items: center;
   gap: var(--spacing-40);
-  margin-top: var(--spacing-16);
 }
 .cmp-clear-space {
   flex: 1;
@@ -76,15 +267,17 @@
   gap: var(--spacing-08);
   padding-top: var(--spacing-16);
 }
-.cmp-palette-block + .cmp-palette-block {
-  margin-top: var(--spacing-16);
+.cmp-palette-block:not(:last-child) {
+  margin-bottom: var(--spacing-16);
 }
 .cmp-palette-block--horizontal {
   flex: 1;
   padding-top: 0;
 }
+.cmp-palette-block--horizontal:not(:last-child) {
+  margin-bottom: 0;
+}
 .cmp-palette-block--horizontal + .cmp-palette-block--horizontal {
-  margin-top: 0;
   padding-left: var(--spacing-24);
   border-left: var(--bd-01) solid var(--color-secondary100);
 }
@@ -119,214 +312,6 @@
   object-fit: contain;
   border-radius: var(--radius-08);
 }
-
-/* ============================================================
- * 3. Visual — Tab panels
- * ============================================================ */
-
-/* Toggle head */
-.cmp-visual-head {
-  max-width: var(--sz-1280);
-  margin-inline: auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--spacing-16);
-  margin-bottom: var(--spacing-24);
-}
-.cmp-visual-toggle {
-  display: flex;
-  width: 290px;
-}
-.cmp-visual-toggle__btn {
-  flex: 1 0 0;
-  padding: var(--spacing-08) var(--spacing-16);
-  border: var(--bd-01) solid var(--color-secondary300);
-  background: transparent;
-  color: var(--color-secondary400);
-  font-family: var(--font-base);
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1.5;
-  letter-spacing: -0.02em;
-  transition:
-    background var(--dur-hover) var(--ease-water),
-    color var(--dur-hover) var(--ease-water),
-    border-color var(--dur-hover) var(--ease-water);
-}
-.cmp-visual-toggle__btn:first-child {
-  border-top-left-radius: var(--radius-08);
-  border-bottom-left-radius: var(--radius-08);
-}
-.cmp-visual-toggle__btn:last-child {
-  border-top-right-radius: var(--radius-08);
-  border-bottom-right-radius: var(--radius-08);
-  border-left: 0;
-}
-.cmp-visual-toggle__btn:hover:not(.is-active) {
-  border-color: var(--color-primary500);
-  color: var(--color-primary500);
-  background: var(--color-primary100);
-}
-.cmp-visual-toggle__btn.is-active {
-  background: var(--color-primary500);
-  border-color: var(--color-primary500);
-  color: var(--color-pure-white);
-  font-weight: 600;
-}
-
-/* Tab panel */
-.cmp-tab-panel {
-  display: none;
-}
-.cmp-tab-panel.is-active {
-  display: block;
-}
-
-/* Lede (title + desc) */
-.cmp-tab-lede {
-  max-width: var(--sz-1280);
-  margin-inline: auto;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-08);
-  margin-bottom: var(--spacing-40);
-  padding-inline: var(--spacing-40);
-}
-.cmp-tab-lede__title { margin: 0; color: var(--color-primary500); }
-.cmp-tab-lede__title--neutral { color: var(--color-secondary900); }
-.cmp-tab-lede__desc  { margin: 0; color: var(--color-secondary600); }
-
-/* Frame — 이미지 쇼케이스 영역 */
-.cmp-tab-frame {
-  width: 100%;
-  padding: var(--spacing-16);
-  border-radius: var(--radius-24);
-  display: flex;
-  align-items: flex-end;
-  gap: var(--spacing-24);
-}
-.cmp-tab-frame--warm    { background: var(--color-primary100); }
-.cmp-tab-frame--neutral,
-.cmp-tab-frame--neutral-hug { background: var(--color-secondary100); }
-.cmp-tab-frame--hug,
-.cmp-tab-frame--neutral-hug {
-  min-height: auto;
-  height: auto;
-}
-
-/* Mockup figures */
-.cmp-tab-mockup {
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-08);
-}
-.cmp-tab-mockup--mobile {
-  flex-shrink: 0;
-  width: 205px;
-}
-.cmp-tab-mockup--desktop {
-  flex: 1;
-  min-width: 0;
-}
-.cmp-tab-mockup__scroll {
-  position: relative;
-  width: 100%;
-  max-height: 520px;
-  overflow-y: auto;
-  overflow-x: hidden;
-  border-radius: var(--radius-08);
-  background: var(--color-pure-white);
-}
-.cmp-tab-mockup__scroll img:not(.cmp-tab-mockup__hint) {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-.cmp-tab-mockup__scroll::-webkit-scrollbar { width: 6px; }
-.cmp-tab-mockup__scroll::-webkit-scrollbar-thumb {
-  background: rgba(224, 122, 95, 0.3);
-  border-radius: 3px;
-}
-.cmp-tab-mockup__hint {
-  position: absolute;
-  bottom: var(--spacing-16);
-  right: var(--spacing-16);
-  width: 64px;
-  height: auto;
-  pointer-events: none;
-  z-index: 1;
-  animation: mockup-hint-bounce 1.8s ease-in-out infinite;
-}
-@keyframes mockup-hint-bounce {
-  0%, 100% { transform: translateY(0); }
-  50%      { transform: translateY(6px); }
-}
-.cmp-tab-mockup--desktop > img {
-  width: 100%;
-  height: auto;
-  border-radius: var(--radius-08);
-}
-
-/* Point cards — 아래 설명 블록 */
-.cmp-tab-points {
-  max-width: var(--sz-1280);
-  margin-inline: auto;
-  margin-top: var(--spacing-40);
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-24);
-}
-.cmp-tab-points__group {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-12);
-}
-.cmp-tab-points__label {
-  margin: 0;
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-08);
-  color: var(--color-secondary600);
-}
-.cmp-tab-points__row {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--spacing-24);
-}
-.cmp-point-card {
-  display: flex;
-  gap: var(--spacing-16);
-  padding: var(--spacing-16);
-  border-radius: var(--radius-16);
-  border: var(--bd-01) solid var(--color-secondary100);
-  background: var(--color-pure-white);
-}
-.cmp-point-card--wide {
-  grid-column: 1 / -1;
-}
-.cmp-point-card__thumb {
-  flex-shrink: 0;
-  width: 140px;
-  height: 100px;
-  border-radius: var(--radius-08);
-  overflow: hidden;
-  background: var(--color-secondary50);
-}
-.cmp-point-card__thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-.cmp-point-card__text {
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-08);
-}
-.cmp-point-card__text h5 { margin: 0; color: var(--color-secondary900); }
-.cmp-point-card__text p  { margin: 0; color: var(--color-secondary600); }
 
 /* ============================================================
  * 4. Design System
@@ -475,3 +460,258 @@
   margin: 0;
 }
 .cmp-typo-pair__col .t-body-s { color: var(--color-secondary700); }
+
+/* ============================================================
+ * Scroll Hint
+ * ============================================================ */
+.cmp-project-hero {
+  position: relative;
+}
+.cmp-scroll-hint {
+  position: absolute;
+  bottom: 12%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  animation: cmp-scroll-fade 1.8s ease-in-out infinite;
+}
+.cmp-scroll-hint__path {
+  stroke: var(--color-pure-white);
+}
+
+@keyframes cmp-scroll-fade {
+  0%, 100% { opacity: 0.3; transform: translateY(0); }
+  50%       { opacity: 1;   transform: translateY(6px); }
+}
+
+/* ============================================================
+ * Modube Hero — 배경 패널 + 오브젝트 이미지
+ * ============================================================ */
+.cmp-modube-hero__stage {
+  position: relative;
+  max-width: var(--sz-1280);
+  margin-inline: auto;
+  padding-inline: var(--layout-padding-pc);
+  border-radius: var(--radius-24);
+  overflow: hidden;
+}
+.cmp-modube-hero__stage::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 33%;
+  background: var(--color-modube);
+  border-radius: var(--radius-24);
+  z-index: 0;
+}
+.cmp-modube-hero__stage > img:first-child {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 580px;
+  object-fit: contain;
+  position: relative;
+  z-index: 1;
+}
+
+/* 플로팅 이미지 */
+@keyframes cmp-float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-10px); }
+}
+.cmp-modube-hero__float {
+  position: absolute;
+  z-index: 2;
+  max-width: 342px;
+  width: auto;
+  animation: cmp-float 3.6s ease-in-out infinite;
+  pointer-events: none;
+}
+.cmp-modube-hero__float--01 {
+  left: calc(var(--layout-padding-pc) + 6%);
+  bottom: 28%;
+  animation-delay: 0s;
+}
+.cmp-modube-hero__float--03 {
+  right: calc(var(--layout-padding-pc) + 6%);
+  top: 30%;
+  animation-delay: 2.4s;
+}
+
+/* 이미지 위 하단 오버레이 메타 */
+.cmp-modube-hero__meta {
+  position: absolute;
+  bottom: 0;
+  right: var(--layout-padding-pc);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: var(--spacing-16);
+  padding: 0 var(--spacing-40) var(--spacing-24);
+}
+.cmp-modube-hero__meta-right {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-08);
+  max-width: 320px;
+}
+.cmp-modube-hero__meta-right p { margin: 0; color: var(--color-pure-white); }
+.cmp-modube-hero__meta .cmp-tool-row {
+  width: fit-content;
+  flex-shrink: 0;
+}
+
+/* ============================================================
+ * Modube Hero — 피그마 레이아웃 (보류)
+ * ============================================================ */
+
+/* 타이틀 중앙 정렬 */
+.cmp-modube-hero__title-wrap {
+  text-align: center;
+  max-width: var(--sz-1280);
+  margin-inline: auto;
+  margin-bottom: var(--spacing-24);
+}
+.cmp-modube-hero__title-wrap .cmp-tag-row {
+  max-width: none;
+  flex-wrap: nowrap;
+  justify-content: center;
+  margin-bottom: var(--spacing-16);
+}
+
+.cmp-modube-hero__title-wrap .cmp-project-hero__title {
+  margin: 0 0 var(--spacing-08);
+}
+.cmp-modube-hero__title-wrap .cmp-project-hero__sub {
+  margin: 0;
+  color: var(--color-secondary700);
+}
+
+/* 배경 스테이지 */
+.cmp-modube-hero__stage {
+  position: relative;
+  max-width: var(--sz-1280);
+  margin-inline: auto;
+  padding-inline: var(--layout-padding-pc);
+  height: 600px;
+}
+
+/* ============================================================
+ * Responsive — 태블릿 (1023px 이하)
+ * ============================================================ */
+@media (max-width: 1023px) {
+  .cmp-modube-hero__meta {
+    right: auto;
+    left: var(--layout-padding-pc);
+    align-items: flex-start;
+  }
+  .cmp-modube-hero__meta-right {
+    text-align: left;
+  }
+}
+
+/* ============================================================
+ * Visual Wrap — 업무 누락을 막는 최적화 디자인 (초록 컨테이너)
+ * ============================================================ */
+.cmp-visual-wrap {
+  background: var(--color-modube);
+  border-radius: var(--radius-24);
+  padding: var(--spacing-40);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-40);
+}
+
+.cmp-visual-wrap .cmp-section__title { color: var(--color-pure-white); }
+.cmp-visual-wrap .cmp-section__lede  { color: var(--color-pure-white); }
+
+
+
+/* ============================================================
+ * Visual Note — 공통 유리형 주석 카드
+ * ============================================================ */
+.cmp-visual-note {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.7);
+  border: var(--bd-02) solid var(--color-pure-white);
+  border-radius: var(--radius-16);
+  padding: var(--spacing-16) var(--spacing-24);
+  box-shadow: var(--shadow-gray);
+  color: var(--color-modube);
+  max-width: 360px;
+}
+.cmp-visual-note p { margin-top: 0; margin-bottom: 0; }
+
+/* 히어로 대시보드 주석 위치 */
+.cmp-visual-note--tl { top: 35%; left: 7%; }
+.cmp-visual-note--br { bottom: 33%; right: 5%; }
+
+/* 패널 카드 내 주석 위치 */
+.cmp-visual-note--panel-tl { top: var(--spacing-16); left: var(--spacing-16); }
+.cmp-visual-note--panel-br { bottom: calc(var(--spacing-16) + 14%); right: 0; }
+
+/* ── Visual Frame (5. Visual 섹션 이미지 래퍼) ── */
+.cmp-visual-frame { position: relative; }
+.cmp-visual-frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius-16);
+}
+
+/* ============================================================
+ * Master 대시보드 섹션 (6. Visual)
+ * ============================================================ */
+.cmp-master-hero {
+  position: relative;
+  margin-bottom: var(--spacing-40);
+}
+.cmp-master-hero img {
+  width: 100%;
+  max-width: 880px;
+  height: auto;
+  display: block;
+  border-radius: var(--radius-16);
+  margin-inline: auto;
+}
+
+.cmp-master-panel {
+  display: flex;
+  gap: var(--spacing-40);
+  align-items: flex-start;
+}
+.cmp-master-panel__card {
+  flex: 1.2;
+  background: var(--color-pure-white);
+  border-radius: var(--radius-24);
+  padding: var(--spacing-24);
+  box-shadow: var(--shadow-gray);
+}
+.cmp-master-panel__detail {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-40);
+}
+.cmp-master-panel__frame { position: relative; }
+.cmp-master-panel__frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--radius-16);
+}
+.cmp-master-panel__title {
+  color: var(--color-secondary900);
+  margin-top: 0;
+  margin-bottom: var(--spacing-08);
+}
+.cmp-master-panel__desc {
+  color: var(--color-secondary600);
+  margin-top: 0;
+  margin-bottom: 0;
+}
+

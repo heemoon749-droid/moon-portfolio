@@ -112,6 +112,69 @@
     document.body.insertAdjacentHTML('afterbegin', html);
   }
 
+  // ---- Section Rail 주입 (project 레이아웃 전용) ----
+  function mountSectionRail() {
+    const sections = Array.from(
+      document.querySelectorAll('main > .cmp-portfolio > section, main > .cmp-portfolio > div[class*="cmp-project-hero"]')
+    ).filter(el => el.tagName === 'SECTION');
+
+    if (sections.length < 2) return;
+
+    // 각 섹션에 id 자동 부여 (없는 경우만)
+    sections.forEach((sec, i) => {
+      if (!sec.id) sec.id = 'section-' + i;
+    });
+
+    const items = sections.map((sec, i) => {
+      const label = i === 0 ? '개요' : (sec.getAttribute('aria-label') || ('0' + (i + 1)).slice(-2));
+      return (
+        '<button class="cmp-section-rail__item' + (i === 0 ? ' is-active' : '') + '" ' +
+        'data-rail-target="' + sec.id + '" aria-label="' + label + '로 이동">' +
+          '<span class="cmp-section-rail__dot" aria-hidden="true"></span>' +
+          '<span class="cmp-section-rail__label t-sub-bold">' + label + '</span>' +
+        '</button>'
+      );
+    }).join('');
+
+    const rail =
+      '<aside class="cmp-section-rail" aria-label="섹션 네비게이션">' +
+        items +
+      '</aside>';
+
+    document.body.insertAdjacentHTML('beforeend', rail);
+
+    // IntersectionObserver로 활성 섹션 감지
+    const railItems = document.querySelectorAll('.cmp-section-rail__item');
+    let labelTimer = null;
+
+    const setActive = (id) => {
+      railItems.forEach(btn => btn.classList.toggle('is-active', btn.dataset.railTarget === id));
+      clearTimeout(labelTimer);
+      railItems.forEach(btn => btn.classList.remove('is-label-visible'));
+      const activeBtn = Array.from(railItems).find(btn => btn.dataset.railTarget === id);
+      if (activeBtn) {
+        activeBtn.classList.add('is-label-visible');
+        labelTimer = setTimeout(() => activeBtn.classList.remove('is-label-visible'), 2000);
+      }
+    };
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => { if (entry.isIntersecting) setActive(entry.target.id); });
+      },
+      { threshold: 0.3 }
+    );
+
+    sections.forEach(sec => observer.observe(sec));
+
+    railItems.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const target = document.getElementById(btn.dataset.railTarget);
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+  }
+
   // ---- Floating Nav 주입 ----
   function mountFloatingNav() {
     const html =
@@ -185,6 +248,7 @@
         nextHref:  body.getAttribute('data-next-href'),
         nextLabel: body.getAttribute('data-next-label')
       });
+      mountSectionRail();
     }
 
     mountFloatingNav();

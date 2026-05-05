@@ -10,7 +10,11 @@
 
   --color-primary500: #e07a5f;
   --color-primary600: #ca6e56;
+  --color-primary400: #e89e89;
   --color-primary100: #f8f2f0;
+
+  /* ---------- Project Brand ---------- */
+  --color-modube: #056460;
   
 
   --color-secondary50:  #f6f6f6;
@@ -33,6 +37,12 @@
   --spacing-40: 40px;
   --spacing-80: 80px;
 
+  /* ---------- Font Size ---------- */
+  --font-size-11: 11px;
+  --font-size-12: 12px;
+  --font-size-14: 14px;
+  --font-size-16: 16px;
+
   /* ---------- Border Radius ---------- */
   --radius-04: 4px;
   --radius-08: 8px;
@@ -54,7 +64,8 @@
   --sz-1280: 1280px;
 
   /* ---------- Layout ---------- */
-  --layout-padding-pc: 80px;
+  --layout-padding-pc: 40px;
+  --layout-padding-table: 16px;
 
   /* ---------- Opacity ---------- */
   --opacity-dimmed: 0.3;

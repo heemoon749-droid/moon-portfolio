@@ -24,7 +24,7 @@
   max-width: var(--sz-1280);
   width: 100%;
   margin-inline: auto;
-  padding-inline: var(--spacing-40);
+  padding-inline: var(--layout-padding-pc);
 }
 
 .cmp-header__logo {
@@ -39,7 +39,7 @@
 .cmp-hero {
   position: relative;
   width: 100%;
-  height: 580px;
+  height: 800px;
   overflow: hidden;
   background: var(--color-white);
 }
@@ -80,8 +80,17 @@
  * Intro — 이름, 태그라인, skills, AI Tools
  * ------------------------------------------------------------ */
 .cmp-intro {
-  padding-top: var(--spacing-80);
-  padding-bottom: var(--spacing-80);
+  position: absolute;
+  bottom: var(--spacing-40);
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-inline: var(--layout-padding-pc);
+  pointer-events: none;
+  z-index: 2;
 }
 
 .cmp-intro__name {
@@ -96,9 +105,62 @@
   margin: 0 0 var(--spacing-40);
 }
 
+.cmp-intro__tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--spacing-08);
+}
+
+.cmp-intro__tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-08) var(--spacing-16);
+  line-height: 1;
+  border-radius: var(--radius-08);
+  background: var(--color-pure-white);
+  color: var(--color-secondary600);
+  border: var(--bd-01) solid var(--color-secondary100);
+  box-shadow: var(--shadow-blur);
+  pointer-events: auto;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    color      var(--dur-hover) var(--ease-water),
+    box-shadow var(--dur-hover) var(--ease-water),
+    transform  500ms           var(--ease-water),
+    border-color var(--dur-hover) var(--ease-water);
+}
+
+.cmp-intro__tag::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 120%, rgba(224, 122, 95, 0.22) 0%, rgba(224, 122, 95, 0) 70%);
+  opacity: 0;
+  transform: scale(0.6);
+  z-index: -1;
+  transition: opacity 900ms var(--ease-water), transform 900ms var(--ease-water);
+}
+
+.cmp-intro__tag:hover {
+  color: var(--color-primary500);
+  border-color: rgba(224, 122, 95, 0.35);
+  box-shadow: var(--shadow-blur), 0 6px 18px rgba(224, 122, 95, 0.14);
+  transform: translateY(-3px);
+}
+
+.cmp-intro__tag:hover::before {
+  opacity: 1;
+  transform: scale(1.4);
+}
+
 .cmp-intro__group {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: var(--spacing-08);
   margin-top: var(--spacing-24);
 }
@@ -218,4 +280,339 @@
 .cmp-card__desc {
   color: var(--color-secondary500);
   margin: 0 0 var(--spacing-16);
+}
+
+
+/* ------------------------------------------------------------
+ * Gallery — 가로 스크롤 프로젝트 쇼케이스
+ * ------------------------------------------------------------ */
+.cmp-gallery {
+  position: relative;
+  padding-bottom: var(--spacing-80);
+}
+
+.cmp-gallery__intro {
+  max-width: var(--sz-1280);
+  margin-inline: auto;
+  padding: var(--spacing-80) 0 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-40);
+}
+
+.cmp-gallery__intro-left {
+  max-width: 580px;
+}
+
+.cmp-gallery__eyebrow {
+  color: var(--color-primary500);
+  margin-bottom: var(--spacing-16);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-08);
+}
+
+.cmp-gallery__eyebrow::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-primary500);
+  box-shadow: 0 0 6px rgba(224, 122, 95, 0.6);
+  flex-shrink: 0;
+}
+
+.cmp-gallery__title {
+  color: var(--color-secondary900);
+  margin: 0 0 var(--spacing-16);
+}
+
+.cmp-gallery__sub {
+  color: var(--color-secondary500);
+  max-width: 480px;
+  margin: 0;
+}
+
+.cmp-gallery__counter {
+  font-size: 13px;
+  color: var(--color-secondary400);
+  letter-spacing: 0.1em;
+  display: flex;
+  align-items: baseline;
+  gap: var(--spacing-08);
+  white-space: nowrap;
+  flex-shrink: 0;
+  padding-inline: 0;
+}
+
+.cmp-gallery__counter strong {
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--color-secondary700);
+  font-feature-settings: "tnum" 1;
+}
+
+/* Progress bar + arrows */
+.cmp-gallery__progress {
+  max-width: var(--sz-1280);
+  margin-inline: auto;
+  padding-inline: 0;
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-24);
+}
+
+.cmp-gallery__progress--top {
+  margin-bottom: var(--spacing-16);
+  padding-top: var(--spacing-08);
+}
+
+.cmp-gallery__progress-bar {
+  flex: 1;
+  height: 1px;
+  background: var(--color-secondary200);
+  position: relative;
+  overflow: hidden;
+}
+
+.cmp-gallery__progress-fill {
+  position: absolute;
+  inset: 0;
+  background: var(--color-primary500);
+  transform-origin: left center;
+  transform: scaleX(0);
+  transition: transform 400ms var(--ease-water);
+}
+
+.cmp-gallery__progress-arrows {
+  display: flex;
+  gap: var(--spacing-08);
+  flex-shrink: 0;
+}
+
+.cmp-gallery__arrow-btn {
+  appearance: none;
+  -webkit-appearance: none;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  border: var(--bd-01) solid var(--color-secondary100);
+  background: var(--color-pure-white);
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-08);
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  color: var(--color-secondary600);
+  box-shadow: var(--shadow-blur);
+  transition:
+    color var(--dur-hover) var(--ease-water),
+    box-shadow var(--dur-hover) var(--ease-water),
+    transform 500ms var(--ease-water),
+    border-color var(--dur-hover) var(--ease-water);
+}
+
+.cmp-gallery__arrow-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at 50% 120%, rgba(224, 122, 95, 0.22) 0%, rgba(224, 122, 95, 0) 70%);
+  opacity: 0;
+  transform: scale(0.6);
+  z-index: -1;
+  transition:
+    opacity 900ms var(--ease-water),
+    transform 900ms var(--ease-water);
+}
+
+.cmp-gallery__arrow-btn:hover {
+  color: var(--color-primary500);
+  border-color: rgba(224, 122, 95, 0.35);
+  box-shadow: var(--shadow-blur), 0 6px 18px rgba(224, 122, 95, 0.14);
+  transform: translateY(-3px);
+}
+
+.cmp-gallery__arrow-btn:hover::before {
+  opacity: 1;
+  transform: scale(1.4);
+}
+
+.cmp-gallery__arrow-btn svg {
+  width: 16px;
+  height: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Track — cmp-section-spacing 컨테이너를 벗어나 화면 전체 너비 */
+.cmp-gallery__track {
+  display: flex;
+  gap: var(--spacing-24);
+  padding: var(--spacing-40) 0 var(--spacing-40);
+  margin-inline: calc(-1 * var(--layout-padding-pc));
+  width: calc(100% + 2 * var(--layout-padding-pc));
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-padding: 0;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.cmp-gallery__track::-webkit-scrollbar {
+  display: none;
+}
+
+/* Card */
+.cmp-gallery__card {
+  flex: 0 0 auto;
+  width: clamp(272px, 36vw, 476px);
+  scroll-snap-align: start;
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 900ms var(--ease-water);
+}
+
+.cmp-gallery__card:hover {
+  transform: translateY(-6px);
+}
+
+.cmp-gallery__card-frame {
+  position: relative;
+  height: 527px;
+  border-radius: var(--radius-24);
+  overflow: hidden;
+  background: var(--color-pure-white);
+  box-shadow: var(--shadow-blur);
+  border: var(--bd-01) solid var(--color-secondary100);
+  transition: all 1100ms var(--ease-water);
+  isolation: isolate;
+}
+
+.cmp-gallery__card:hover .cmp-gallery__card-frame {
+  border-color: rgba(224, 122, 95, 0.35);
+  box-shadow:
+    -8px -8px 20px rgba(255, 255, 255, 0.7),
+    20px 20px 48px rgba(224, 122, 95, 0.18),
+    inset 1px 1px 2px rgba(255, 255, 255, 0.9);
+}
+
+[data-theme="dark"] .cmp-gallery__card-frame {
+  box-shadow:
+    -8px -8px 20px rgba(60, 62, 80, 0.2),
+    12px 12px 32px rgba(0, 0, 0, 0.4),
+    inset 1px 1px 2px rgba(255, 255, 255, 0.04);
+}
+
+.cmp-gallery__card-img-wrap {
+  position: absolute;
+  inset: 0;
+  background: var(--color-secondary100);
+  overflow: hidden;
+}
+
+.cmp-gallery__card-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1600ms var(--ease-water), filter 1600ms var(--ease-water);
+  filter: saturate(0.92);
+}
+
+.cmp-gallery__card:hover .cmp-gallery__card-img-wrap img {
+  transform: scale(1.05);
+  filter: saturate(1);
+}
+
+.cmp-gallery__card-no {
+  position: absolute;
+  top: 20px;
+  left: var(--spacing-24);
+  font-size: var(--font-size-11);
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  color: var(--color-secondary900);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 6px 10px;
+  border-radius: 999px;
+  z-index: 4;
+  font-feature-settings: "tnum" 1;
+}
+
+[data-theme="dark"] .cmp-gallery__card-no {
+  background: rgba(40, 42, 58, 0.7);
+  color: var(--color-secondary200);
+}
+
+.cmp-gallery__card-arrow {
+  position: absolute;
+  top: 20px;
+  right: var(--spacing-24);
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: grid;
+  place-items: center;
+  color: var(--color-secondary700);
+  z-index: 4;
+  transition: all 900ms var(--ease-water);
+}
+
+.cmp-gallery__card-arrow svg {
+  width: 14px;
+  height: 14px;
+}
+
+.cmp-gallery__card:hover .cmp-gallery__card-arrow {
+  background: var(--color-primary500);
+  color: var(--color-pure-white);
+  transform: rotate(-45deg);
+}
+
+.cmp-gallery__card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--spacing-24);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.3) 55%, rgba(0, 0, 0, 0) 100%);
+  z-index: 3;
+}
+
+.cmp-gallery__card-tags {
+  display: flex;
+  gap: var(--spacing-08);
+  flex-wrap: wrap;
+  margin-bottom: var(--spacing-12);
+}
+
+.cmp-gallery__card-tag {
+  font-size: var(--font-size-14);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  padding: var(--spacing-08);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: var(--color-pure-white);
+  text-transform: uppercase;
+}
+
+.cmp-gallery__card-title {
+  margin: 0 0 var(--spacing-08);
+  color: var(--color-pure-white);
+}
+
+.cmp-gallery__card-desc {
+  margin: 0;
+  color: var(--color-pure-white);
 }

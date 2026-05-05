@@ -37,9 +37,23 @@
   <main>
 
     <!-- ============================================================
-         Hero — 물 파동 Canvas + 중앙 이미지
+         Section Rail — 좌측 고정 섹션 인디케이터
          ============================================================ -->
-    <section class="cmp-hero" aria-label="히어로 비주얼">
+    <aside class="cmp-section-rail" aria-label="섹션 네비게이션">
+      <button class="cmp-section-rail__item is-active" data-rail-target="hero" aria-label="히어로로 이동">
+        <span class="cmp-section-rail__dot" aria-hidden="true"></span>
+        <span class="cmp-section-rail__label t-sub-bold">紋</span>
+      </button>
+      <button class="cmp-section-rail__item" data-rail-target="works" aria-label="프로젝트로 이동">
+        <span class="cmp-section-rail__dot" aria-hidden="true"></span>
+        <span class="cmp-section-rail__label t-sub-bold">project</span>
+      </button>
+    </aside>
+
+    <!-- ============================================================
+         Hero — 물 파동 Canvas + 중앙 이미지 + Intro
+         ============================================================ -->
+    <section class="cmp-hero" id="hero" aria-label="히어로 비주얼">
       <canvas class="cmp-hero__canvas" aria-hidden="true"></canvas>
       <div class="cmp-hero__stage">
         <img
@@ -50,124 +64,149 @@
           aria-hidden="true"
         />
       </div>
-    </section>
 
-    <!-- ============================================================
-         Intro — 이름, 역할, Skills, AI Tools
-         ============================================================ -->
-    <section class="cmp-intro cmp-section-spacing is-reveal" aria-label="소개">
-      <h1 class="cmp-intro__name t-heading-m">
-        紋 [무늬 문] <span class="cmp-intro__name-tagline">논리와 결을 만드는 디자이너</span>
-      </h1>
-      <p class="cmp-intro__role t-body-s">
-        UI/UX &amp; Branding Designer (에이전시 &amp; 인하우스)<br />
-        SaaS, LMS Platform, UI/UX Design, Design System, Branding
-      </p>
-
-      <div class="cmp-intro__group">
-        <span class="cmp-intro__label t-eyebrow">skills</span>
-        <div class="cmp-tag-row">
-          <span class="cmp-tag t-sub-bold">Figma</span>
-          <span class="cmp-tag t-sub-bold">Adobe</span>
-          <span class="cmp-tag t-sub-bold">HTML</span>
-          <span class="cmp-tag t-sub-bold">CSS</span>
-          <span class="cmp-tag t-sub-bold">JS</span>
-          <span class="cmp-tag t-sub-bold">AI agent</span>
-          <span class="cmp-tag t-sub-bold">vs code</span>
-          <span class="cmp-tag t-sub-bold">antigravity</span>
-        </div>
-      </div>
-
-      <div class="cmp-intro__group">
-        <span class="cmp-intro__label t-eyebrow">AI Tools</span>
-        <div class="cmp-tag-row">
-          <span class="cmp-tag t-sub-bold">Claude code</span>
-          <span class="cmp-tag t-sub-bold">Gemini</span>
-          <span class="cmp-tag t-sub-bold">Google ai studio</span>
-          <span class="cmp-tag t-sub-bold">Figma make</span>
-          <span class="cmp-tag t-sub-bold">Firefly</span>
+      <div class="cmp-intro is-reveal" id="intro" aria-label="소개">
+        <h1 class="cmp-intro__name t-heading-m">
+          紋 [무늬 문] <span class="cmp-intro__name-tagline">논리와 결을 만드는 디자이너</span>
+        </h1>
+        <p class="cmp-intro__role t-body-s">
+          에이전시 &amp; 인하우스 경력의 SaaS, LMS Platform, UI/UX Design, Design System, Branding 디자인
+        </p>
+        <div class="cmp-intro__tag-row">
+          <span class="cmp-intro__tag t-sub-bold">Adobe tools</span>
+          <span class="cmp-intro__tag t-sub-bold">Figma</span>
+          <span class="cmp-intro__tag t-sub-bold">Adobe</span>
+          <span class="cmp-intro__tag t-sub-bold">HTML</span>
+          <span class="cmp-intro__tag t-sub-bold">CSS</span>
+          <span class="cmp-intro__tag t-sub-bold">JS</span>
+          <span class="cmp-intro__tag t-sub-bold">AI agent</span>
         </div>
       </div>
     </section>
 
     <!-- ============================================================
-         Projects — Col-3 카드 + Col-2 서브 카드
+         Gallery — 가로 스크롤 프로젝트 카드
          ============================================================ -->
-    <section class="cmp-projects cmp-section-spacing is-reveal" aria-label="프로젝트">
+    <section class="cmp-gallery cmp-section-spacing" id="works" aria-label="프로젝트">
 
-      <div class="cmp-project-list">
+      <div class="cmp-gallery__intro">
+          <div class="cmp-gallery__eyebrow t-sub-bold">selected works</div>
+      </div>
+
+      <div class="cmp-gallery__progress cmp-gallery__progress--top">
+        <div class="cmp-gallery__progress-bar">
+          <div class="cmp-gallery__progress-fill" aria-hidden="true"></div>
+        </div>
+        <div class="cmp-gallery__progress-arrows">
+          <button class="cmp-gallery__arrow-btn" data-gallery-prev aria-label="이전 프로젝트">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          </button>
+          <button class="cmp-gallery__arrow-btn" data-gallery-next aria-label="다음 프로젝트">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="cmp-gallery__track" id="gallery-track">
 
         <!-- 1. 모두비 솔루션 -->
-        <a class="cmp-card cmp-card--link" href="modube.html" aria-label="모두비 솔루션 상세 보기">
-          <div class="cmp-card__thumb" aria-hidden="true">
-            <img src="assets/img_modube-thumnail.png" alt="" aria-hidden="true" />
-          </div>
-          <div class="cmp-card__body">
-            <h2 class="cmp-card__title t-body-m-bold">모두비솔루션</h2>
-            <p class="cmp-card__desc t-body-s">장애인 사용자/비장애인 관리자 다중 사용자 솔루션</p>
-            <div class="cmp-tag-row">
-              <span class="cmp-tag t-sub-bold">B2B</span>
-              <span class="cmp-tag t-sub-bold">Saas</span>
-              <span class="cmp-tag t-sub-bold">AI</span>
-              <span class="cmp-tag t-sub-bold">UIUX design</span>
+        <a class="cmp-gallery__card" href="modube.html" aria-label="모두비 솔루션 상세 보기">
+          <div class="cmp-gallery__card-frame">
+            <span class="cmp-gallery__card-no">01 / 04</span>
+            <span class="cmp-gallery__card-arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+            </span>
+            <div class="cmp-gallery__card-img-wrap">
+              <img src="assets/img_modube-thumnail.png" alt="모두비 솔루션" />
+            </div>
+            <div class="cmp-gallery__card-overlay">
+              <div class="cmp-gallery__card-tags">
+                <span class="cmp-gallery__card-tag">SaaS</span>
+                <span class="cmp-gallery__card-tag">B2B</span>
+                <span class="cmp-gallery__card-tag">Design System</span>
+              </div>
+              <h3 class="cmp-gallery__card-title t-body-m-bold">모두비 솔루션</h3>
+              <p class="cmp-gallery__card-desc t-body-s-bold">장애인 재택근무 SaaS — 다중 사용자 디자인 시스템 구축</p>
             </div>
           </div>
         </a>
 
         <!-- 2. 내일배움카드 -->
-        <a class="cmp-card cmp-card--link" href="nebeca.html" aria-label="내일배움카드 상세 보기">
-          <div class="cmp-card__thumb" aria-hidden="true">
-            <img src="assets/nebeca/img_thumnail-nebeca.png" alt="내일배움카드 상세보기">
-          </div>
-          <div class="cmp-card__body">
-            <h2 class="cmp-card__title t-body-m-bold">내일배움카드</h2>
-            <p class="cmp-card__desc t-body-s">교육플렛폼/AI 워크플로우 설계</p>
-            <div class="cmp-tag-row">
-              <span class="cmp-tag t-sub-bold">B2C</span>
-              <span class="cmp-tag t-sub-bold">UIUX design</span>
-              <span class="cmp-tag t-sub-bold">AI Workflow</span>
+        <a class="cmp-gallery__card" href="nebeca.html" aria-label="내일배움카드 상세 보기">
+          <div class="cmp-gallery__card-frame">
+            <span class="cmp-gallery__card-no">02 / 04</span>
+            <span class="cmp-gallery__card-arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+            </span>
+            <div class="cmp-gallery__card-img-wrap">
+              <img src="assets/nebeca/img_thumnail-nebeca.png" alt="내일배움카드" />
+            </div>
+            <div class="cmp-gallery__card-overlay">
+              <div class="cmp-gallery__card-tags">
+                <span class="cmp-gallery__card-tag">B2C</span>
+                <span class="cmp-gallery__card-tag">EdTech</span>
+                <span class="cmp-gallery__card-tag">AI Workflow</span>
+              </div>
+              <h3 class="cmp-gallery__card-title t-body-m-bold">내일배움카드</h3>
+              <p class="cmp-gallery__card-desc t-body-s-bold">AI Workflow 기반 교육 플랫폼 결제 플로우 UX 최적화</p>
             </div>
           </div>
         </a>
 
         <!-- 3. 모두의러닝 -->
-        <a class="cmp-card cmp-card--link" href="learning.html" aria-label="모두의러닝 상세 보기">
-          <div class="cmp-card__thumb" aria-hidden="true">
-            <img src="assets/img_modu-thumnail.png" alt="" aria-hidden="true" />
-          </div>
-          <div class="cmp-card__body">
-            <h2 class="cmp-card__title t-body-m-bold">모두의러닝</h2>
-            <p class="cmp-card__desc t-body-s">리뉴얼/서비스 구조 개선</p>
-            <div class="cmp-tag-row">
-              <span class="cmp-tag t-sub-bold">UX 플로우설계</span>
-              <span class="cmp-tag t-sub-bold">Renewal</span>
-              <span class="cmp-tag t-sub-bold">UIUX design</span>
+        <a class="cmp-gallery__card" href="learning.html" aria-label="모두의러닝 상세 보기">
+          <div class="cmp-gallery__card-frame">
+            <span class="cmp-gallery__card-no">03 / 04</span>
+            <span class="cmp-gallery__card-arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+            </span>
+            <div class="cmp-gallery__card-img-wrap">
+              <img src="assets/img_modu-thumnail.png" alt="모두의러닝" />
+            </div>
+            <div class="cmp-gallery__card-overlay">
+              <div class="cmp-gallery__card-tags">
+                <span class="cmp-gallery__card-tag">EdTech</span>
+                <span class="cmp-gallery__card-tag">Renewal</span>
+                <span class="cmp-gallery__card-tag">IA</span>
+              </div>
+              <h3 class="cmp-gallery__card-title t-body-m-bold">모두의러닝</h3>
+              <p class="cmp-gallery__card-desc t-body-s-bold">강좌 탐색 IA를 4단 깊이에서 2단으로 압축, CS 인입률 감소</p>
             </div>
           </div>
         </a>
 
-        <!-- 4. 사이드 프로젝트 -->
-        <a class="cmp-card cmp-card--link" href="sub.html" aria-label="사이드 프로젝트 상세 보기">
-          <div class="cmp-card__thumb" aria-hidden="true">
-            <img src="assets/img_sub-thumnail.png" alt="" aria-hidden="true" />
-          </div>
-          <div class="cmp-card__body">
-            <h2 class="cmp-card__title t-body-m-bold">Visual Marketing Showcase</h2>
-            <p class="cmp-card__desc t-body-s">A/B 테스트 랜딩페이지/디즈니월드잉글리쉬/마케팅 디자인</p>
-            <div class="cmp-tag-row">
-              <span class="cmp-tag t-sub-bold">Performance</span>
-              <span class="cmp-tag t-sub-bold">Landing</span>
+        <!-- 4. Visual Marketing -->
+        <a class="cmp-gallery__card" href="sub.html" aria-label="Visual Marketing Showcase 상세 보기">
+          <div class="cmp-gallery__card-frame">
+            <span class="cmp-gallery__card-no">04 / 04</span>
+            <span class="cmp-gallery__card-arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+            </span>
+            <div class="cmp-gallery__card-img-wrap">
+              <img src="assets/img_sub-thumnail.png" alt="Visual Marketing Showcase" />
+            </div>
+            <div class="cmp-gallery__card-overlay">
+              <div class="cmp-gallery__card-tags">
+                <span class="cmp-gallery__card-tag">Performance</span>
+                <span class="cmp-gallery__card-tag">Landing</span>
+                <span class="cmp-gallery__card-tag">Visual</span>
+              </div>
+              <h3 class="cmp-gallery__card-title t-body-m-bold">Visual Marketing</h3>
+              <p class="cmp-gallery__card-desc t-body-s-bold">A/B 테스트 랜딩 / 디즈니월드잉글리쉬 마케팅 비주얼</p>
             </div>
           </div>
         </a>
 
       </div>
+
     </section>
+
 
   </main>
 
   <script src="scripts/layout.js" defer></script>
   <script src="scripts/water-ripple.js" defer></script>
   <script src="scripts/reveal.js" defer></script>
+  <script src="scripts/main.js" defer></script>
 </body>
 </html>
