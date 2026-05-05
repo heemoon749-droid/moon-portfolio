@@ -148,6 +148,20 @@
   color: #ef9a9a;
 }
 
+/* ---------- 2-3. 갤러리 카드 오버레이 텍스트 — 다크 배경 위 흰 글씨 유지 ----------
+ * --color-pure-white 가 다크에서 어두운 surface 로 반전되어 보이지 않게 됨. */
+[data-theme="dark"] .cmp-gallery__card-tag,
+[data-theme="dark"] .cmp-gallery__card-title,
+[data-theme="dark"] .cmp-gallery__card-desc {
+  color: #ffffff;
+}
+
+/* intro 태그 — 다크 배경 위에서 배경/텍스트 보정 */
+[data-theme="dark"] .cmp-intro__tag {
+  background: var(--color-secondary100);
+  color: var(--color-secondary600);
+}
+
 /* ---------- 3. Blend / 효과 조정 ---------- */
 
 /* Hero 이미지 drop-shadow — 다크에서는 살짝만 */
