@@ -2,496 +2,211 @@
 <html lang="ko">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-  <meta name="theme-color" content="#ffd166" />
-  <title>FREE BANANA 🍌</title>
-
-  <style>
-    /* ============================================================
-     *  RESET & BASE
-     * ============================================================ */
-    *,
-    *::before,
-    *::after { box-sizing: border-box; }
-
-    html, body {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      width: 100%;
-      overscroll-behavior: none;
-      -webkit-tap-highlight-color: transparent;
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Pretendard,
-                   "Apple SD Gothic Neo", "Malgun Gothic", system-ui, sans-serif;
-      color: #3d2a00;
-      background:
-        radial-gradient(circle at 20% 20%, #fff5c2 0%, transparent 55%),
-        radial-gradient(circle at 80% 80%, #ffe89a 0%, transparent 55%),
-        linear-gradient(180deg, #fff8d6 0%, #ffd97a 100%);
-      min-height: 100vh;
-      min-height: 100dvh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: max(24px, env(safe-area-inset-top))
-               max(24px, env(safe-area-inset-right))
-               max(24px, env(safe-area-inset-bottom))
-               max(24px, env(safe-area-inset-left));
-      overflow: hidden;
-    }
-
-    /* ============================================================
-     *  HOME — Free Banana CTA (기본 화면)
-     * ============================================================ */
-    .home {
-      position: relative;
-      width: min(560px, 100%);
-      text-align: center;
-      z-index: 1;
-    }
-
-    .home__banana {
-      font-size: clamp(140px, 28vw, 240px);
-      line-height: 1;
-      margin: 0 auto 12px;
-      filter: drop-shadow(0 18px 24px rgba(180, 120, 0, 0.35));
-      animation: bananaWiggle 2.6s ease-in-out infinite;
-    }
-
-    @keyframes bananaWiggle {
-      0%, 100% { transform: rotate(-8deg) translateY(0); }
-      50%      { transform: rotate(8deg)  translateY(-6px); }
-    }
-
-    .home__title {
-      margin: 0 0 8px;
-      font-size: clamp(56px, 14vw, 120px);
-      font-weight: 900;
-      letter-spacing: 0.04em;
-      line-height: 1;
-      background: linear-gradient(180deg, #e07a00 0%, #a04a00 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      text-shadow: 0 3px 0 rgba(255, 255, 255, 0.5);
-    }
-
-    .home__subtitle {
-      margin: 0 0 36px;
-      font-size: clamp(14px, 2.4vw, 18px);
-      font-weight: 600;
-      color: #7a5a1a;
-      letter-spacing: 0.06em;
-    }
-
-    .home__cta {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      width: min(360px, 100%);
-      padding: 20px 28px;
-      border: none;
-      border-radius: 9999px;
-      background: linear-gradient(180deg, #ff8a5b 0%, #e0563a 100%);
-      color: #fff;
-      font-size: clamp(18px, 3vw, 22px);
-      font-weight: 800;
-      letter-spacing: 0.06em;
-      cursor: pointer;
-      box-shadow:
-        0 18px 36px rgba(224, 86, 58, 0.45),
-        inset 0 1px 0 rgba(255, 255, 255, 0.5);
-      transition: transform 0.18s ease, box-shadow 0.18s ease;
-      touch-action: manipulation;
-      user-select: none;
-      -webkit-user-select: none;
-    }
-
-    .home__cta:hover { transform: translateY(-2px); }
-    .home__cta:active { transform: translateY(1px); }
-
-    .home__cta-icon {
-      font-size: 1.2em;
-      animation: ctaBob 1.8s ease-in-out infinite;
-    }
-
-    @keyframes ctaBob {
-      0%, 100% { transform: translateY(0); }
-      50%      { transform: translateY(-3px); }
-    }
-
-    /* ============================================================
-     *  MODAL — 결과 (당첨 / 꽝)
-     * ============================================================ */
-    .modal[hidden] { display: none !important; }
-
-    .modal {
-      position: fixed;
-      inset: 0;
-      z-index: 100;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 24px;
-    }
-
-    .modal__backdrop {
-      position: absolute;
-      inset: 0;
-      background: rgba(20, 22, 40, 0.5);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      animation: fadeIn 0.32s ease both;
-    }
-
-    .modal__confetti {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-    }
-
-    .modal__panel {
-      position: relative;
-      width: min(440px, 100%);
-      padding: 44px 32px 32px;
-      border-radius: 28px;
-      background: linear-gradient(180deg, #fffdf5 0%, #fff1c4 100%);
-      box-shadow:
-        0 32px 80px rgba(40, 30, 0, 0.4),
-        inset 0 1px 0 rgba(255, 255, 255, 0.9);
-      text-align: center;
-      animation: popIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
-      overflow: hidden;
-    }
-
-    .modal__panel::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(circle at 20% 0%, rgba(255, 220, 100, 0.55), transparent 60%),
-        radial-gradient(circle at 80% 100%, rgba(255, 170, 60, 0.35), transparent 60%);
-      pointer-events: none;
-    }
-
-    .modal__close {
-      position: absolute;
-      top: 14px;
-      right: 14px;
-      width: 36px;
-      height: 36px;
-      border: none;
-      border-radius: 50%;
-      background: rgba(0, 0, 0, 0.08);
-      color: #4a3000;
-      font-size: 20px;
-      line-height: 1;
-      cursor: pointer;
-      z-index: 2;
-      touch-action: manipulation;
-      transition: background 0.2s ease;
-    }
-    .modal__close:hover { background: rgba(0, 0, 0, 0.15); }
-
-    .modal__icon {
-      position: relative;
-      font-size: clamp(80px, 18vw, 130px);
-      line-height: 1;
-      margin-bottom: 12px;
-      filter: drop-shadow(0 12px 18px rgba(120, 70, 0, 0.3));
-    }
-
-    .modal__title {
-      position: relative;
-      margin: 0 0 8px;
-      font-size: clamp(26px, 5vw, 34px);
-      font-weight: 900;
-      letter-spacing: 0.02em;
-      line-height: 1.2;
-    }
-
-    .modal__desc {
-      position: relative;
-      margin: 0 0 24px;
-      font-size: clamp(14px, 2.4vw, 16px);
-      font-weight: 500;
-      color: #5a4a1a;
-      line-height: 1.55;
-    }
-
-    .modal__again {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 14px 28px;
-      border: none;
-      border-radius: 9999px;
-      background: linear-gradient(180deg, #4a3000 0%, #2e1d00 100%);
-      color: #ffd166;
-      font-size: 15px;
-      font-weight: 800;
-      letter-spacing: 0.06em;
-      cursor: pointer;
-      box-shadow:
-        0 12px 24px rgba(40, 25, 0, 0.35),
-        inset 0 1px 0 rgba(255, 255, 255, 0.15);
-      transition: transform 0.18s ease;
-      touch-action: manipulation;
-    }
-    .modal__again:hover  { transform: translateY(-2px); }
-    .modal__again:active { transform: translateY(1px); }
-
-    /* Win 톤 */
-    .modal--win .modal__title { color: #6b3a00; }
-
-    /* Lose 톤 */
-    .modal--lose .modal__panel {
-      background: linear-gradient(180deg, #fafbff 0%, #e2e7f5 100%);
-    }
-    .modal--lose .modal__panel::before {
-      background:
-        radial-gradient(circle at 20% 0%, rgba(120, 140, 200, 0.35), transparent 60%),
-        radial-gradient(circle at 80% 100%, rgba(160, 180, 220, 0.25), transparent 60%);
-    }
-    .modal--lose .modal__title { color: #3d405b; }
-    .modal--lose .modal__desc  { color: #5a5c74; }
-    .modal--lose .modal__again {
-      background: linear-gradient(180deg, #3d405b 0%, #252637 100%);
-      color: #f8f9fa;
-    }
-
-    /* ============================================================
-     *  ANIMATIONS
-     * ============================================================ */
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to   { opacity: 1; }
-    }
-    @keyframes popIn {
-      0%   { opacity: 0; transform: translateY(24px) scale(0.85); }
-      100% { opacity: 1; transform: translateY(0)    scale(1);    }
-    }
-
-    /* ============================================================
-     *  REDUCED MOTION
-     * ============================================================ */
-    @media (prefers-reduced-motion: reduce) {
-      .home__banana,
-      .home__cta-icon,
-      .modal__backdrop,
-      .modal__panel { animation: none !important; }
-    }
-
-    /* ============================================================
-     *  LANDSCAPE TABLET — 좀 더 여유
-     * ============================================================ */
-    @media (min-width: 768px) {
-      .home__subtitle { margin-bottom: 44px; }
-    }
-  </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>紋 [무늬 문] — Portfolio</title>
+  <meta name="description" content="논리와 결을 만드는 UX/UI & Branding 디자이너 문희 포트폴리오" />
+  <script>(function(){try{var t=localStorage.getItem('theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
+  <link rel="stylesheet" href="styles/tokens.css" />
+  <link rel="stylesheet" href="styles/typography.css" />
+  <link rel="stylesheet" href="styles/base.css" />
+  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="stylesheet" href="styles/dark.css" />
 </head>
-
-<body>
+<body data-layout="cover">
 
   <!-- ============================================================
-       HOME — 기본 화면: 가운데 바나나 + FREE BANANA + 보너스 CTA
+       Header
        ============================================================ -->
-  <main class="home" aria-label="프리 바나나">
-    <div class="home__banana" aria-hidden="true">🍌</div>
-    <h1 class="home__title">FREE BANANA</h1>
-    <p class="home__subtitle">행운의 보너스를 받아보세요</p>
-    <button class="home__cta" type="button" id="bonusBtn" aria-label="보너스 받기">
-      <span class="home__cta-icon" aria-hidden="true">🎁</span>
-      <span>보너스 받기</span>
+  <header class="cmp-header">
+    <div class="cmp-header__inner">
+      <a href="./" class="cmp-header__logo t-body-s-bold" aria-label="홈으로">
+        moonhee portfolio
+      </a>
+    </div>
+    <button class="cmp-theme-toggle" type="button" aria-label="다크 모드 전환" data-theme-toggle>
+      <svg class="cmp-theme-toggle__moon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+      </svg>
+      <svg class="cmp-theme-toggle__sun" viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="4"/>
+        <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/>
+      </svg>
     </button>
+  </header>
+
+  <main>
+
+    <!-- ============================================================
+         Section Rail — 좌측 고정 섹션 인디케이터
+         ============================================================ -->
+    <aside class="cmp-section-rail" aria-label="섹션 네비게이션">
+      <button class="cmp-section-rail__item is-active" data-rail-target="hero" aria-label="히어로로 이동">
+        <span class="cmp-section-rail__dot" aria-hidden="true"></span>
+        <span class="cmp-section-rail__label t-sub-bold">紋</span>
+      </button>
+      <button class="cmp-section-rail__item" data-rail-target="works" aria-label="프로젝트로 이동">
+        <span class="cmp-section-rail__dot" aria-hidden="true"></span>
+        <span class="cmp-section-rail__label t-sub-bold">project</span>
+      </button>
+    </aside>
+
+    <!-- ============================================================
+         Hero — 물 파동 Canvas + 중앙 이미지 + Intro
+         ============================================================ -->
+    <section class="cmp-hero" id="hero" aria-label="히어로 비주얼">
+      <canvas class="cmp-hero__canvas" aria-hidden="true"></canvas>
+      <div class="cmp-hero__stage">
+        <img
+          class="cmp-hero__image"
+          src="assets/hero-asset00.png"
+          data-src-dark="assets/hero-asset00-dark.png"
+          alt=""
+          aria-hidden="true"
+        />
+      </div>
+
+      <div class="cmp-intro is-reveal" id="intro" aria-label="소개">
+        <h1 class="cmp-intro__name t-heading-m">
+          紋 [무늬 문] <span class="cmp-intro__name-tagline">논리와 결을 만드는 디자이너</span>
+        </h1>
+        <p class="cmp-intro__role t-body-s">
+          에이전시 &amp; 인하우스 경력의 SaaS, LMS Platform, UI/UX Design, Design System, Branding 디자인
+        </p>
+        <div class="cmp-intro__tag-row">
+          <span class="cmp-intro__tag t-sub-bold">Adobe tools</span>
+          <span class="cmp-intro__tag t-sub-bold">Figma</span>
+          <span class="cmp-intro__tag t-sub-bold">Adobe</span>
+          <span class="cmp-intro__tag t-sub-bold">HTML</span>
+          <span class="cmp-intro__tag t-sub-bold">CSS</span>
+          <span class="cmp-intro__tag t-sub-bold">JS</span>
+          <span class="cmp-intro__tag t-sub-bold">AI agent</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         Gallery — 가로 스크롤 프로젝트 카드
+         ============================================================ -->
+    <section class="cmp-gallery cmp-section-spacing" id="works" aria-label="프로젝트">
+
+      <div class="cmp-gallery__intro">
+          <div class="cmp-gallery__eyebrow t-sub-bold">selected works</div>
+      </div>
+
+      <div class="cmp-gallery__progress cmp-gallery__progress--top">
+        <div class="cmp-gallery__progress-bar">
+          <div class="cmp-gallery__progress-fill" aria-hidden="true"></div>
+        </div>
+        <div class="cmp-gallery__progress-arrows">
+          <button class="cmp-gallery__arrow-btn" data-gallery-prev aria-label="이전 프로젝트">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          </button>
+          <button class="cmp-gallery__arrow-btn" data-gallery-next aria-label="다음 프로젝트">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="cmp-gallery__track" id="gallery-track">
+
+        <!-- 1. 모두비 솔루션 -->
+        <a class="cmp-gallery__card" href="modube.html" aria-label="모두비 솔루션 상세 보기">
+          <div class="cmp-gallery__card-frame">
+            <span class="cmp-gallery__card-no">01 / 04</span>
+            <span class="cmp-gallery__card-arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+            </span>
+            <div class="cmp-gallery__card-img-wrap">
+              <img src="assets/img_modube-thumnail.png" alt="모두비 솔루션" />
+            </div>
+            <div class="cmp-gallery__card-overlay">
+              <div class="cmp-gallery__card-tags">
+                <span class="cmp-gallery__card-tag">SaaS</span>
+                <span class="cmp-gallery__card-tag">B2B</span>
+                <span class="cmp-gallery__card-tag">Design System</span>
+              </div>
+              <h3 class="cmp-gallery__card-title t-body-m-bold">모두비 솔루션</h3>
+              <p class="cmp-gallery__card-desc t-body-s-bold">장애인 재택근무 SaaS — 다중 사용자 디자인 시스템 구축</p>
+            </div>
+          </div>
+        </a>
+
+        <!-- 2. 내일배움카드 -->
+        <a class="cmp-gallery__card" href="nebeca.html" aria-label="내일배움카드 상세 보기">
+          <div class="cmp-gallery__card-frame">
+            <span class="cmp-gallery__card-no">02 / 04</span>
+            <span class="cmp-gallery__card-arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+            </span>
+            <div class="cmp-gallery__card-img-wrap">
+              <img src="assets/nebeca/img_thumnail-nebeca.png" alt="내일배움카드" />
+            </div>
+            <div class="cmp-gallery__card-overlay">
+              <div class="cmp-gallery__card-tags">
+                <span class="cmp-gallery__card-tag">B2C</span>
+                <span class="cmp-gallery__card-tag">EdTech</span>
+                <span class="cmp-gallery__card-tag">AI Workflow</span>
+              </div>
+              <h3 class="cmp-gallery__card-title t-body-m-bold">내일배움카드</h3>
+              <p class="cmp-gallery__card-desc t-body-s-bold">AI Workflow 기반 교육 플랫폼 결제 플로우 UX 최적화</p>
+            </div>
+          </div>
+        </a>
+
+        <!-- 3. 모두의러닝 -->
+        <a class="cmp-gallery__card" href="learning.html" aria-label="모두의러닝 상세 보기">
+          <div class="cmp-gallery__card-frame">
+            <span class="cmp-gallery__card-no">03 / 04</span>
+            <span class="cmp-gallery__card-arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+            </span>
+            <div class="cmp-gallery__card-img-wrap">
+              <img src="assets/img_modu-thumnail.png" alt="모두의러닝" />
+            </div>
+            <div class="cmp-gallery__card-overlay">
+              <div class="cmp-gallery__card-tags">
+                <span class="cmp-gallery__card-tag">EdTech</span>
+                <span class="cmp-gallery__card-tag">Renewal</span>
+                <span class="cmp-gallery__card-tag">IA</span>
+              </div>
+              <h3 class="cmp-gallery__card-title t-body-m-bold">모두의러닝</h3>
+              <p class="cmp-gallery__card-desc t-body-s-bold">강좌 탐색 IA를 4단 깊이에서 2단으로 압축, CS 인입률 감소</p>
+            </div>
+          </div>
+        </a>
+
+        <!-- 4. Visual Marketing -->
+        <a class="cmp-gallery__card" href="sub.html" aria-label="Visual Marketing Showcase 상세 보기">
+          <div class="cmp-gallery__card-frame">
+            <span class="cmp-gallery__card-no">04 / 04</span>
+            <span class="cmp-gallery__card-arrow" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M9 7h8v8"/></svg>
+            </span>
+            <div class="cmp-gallery__card-img-wrap">
+              <img src="assets/img_sub-thumnail.png" alt="Visual Marketing Showcase" />
+            </div>
+            <div class="cmp-gallery__card-overlay">
+              <div class="cmp-gallery__card-tags">
+                <span class="cmp-gallery__card-tag">Performance</span>
+                <span class="cmp-gallery__card-tag">Landing</span>
+                <span class="cmp-gallery__card-tag">Visual</span>
+              </div>
+              <h3 class="cmp-gallery__card-title t-body-m-bold">Visual Marketing</h3>
+              <p class="cmp-gallery__card-desc t-body-s-bold">A/B 테스트 랜딩 / 디즈니월드잉글리쉬 마케팅 비주얼</p>
+            </div>
+          </div>
+        </a>
+
+      </div>
+
+    </section>
+
+
   </main>
 
-  <!-- ============================================================
-       MODAL — 결과 (당첨 / 꽝)
-       ============================================================ -->
-  <div class="modal" id="resultModal" role="dialog" aria-modal="true" aria-labelledby="resultTitle" hidden>
-    <div class="modal__backdrop" data-close aria-hidden="true"></div>
-    <canvas class="modal__confetti" id="confettiCanvas" aria-hidden="true"></canvas>
-    <div class="modal__panel">
-      <button class="modal__close" type="button" data-close aria-label="닫기">×</button>
-      <div class="modal__icon" id="resultIcon" aria-hidden="true">🍫</div>
-      <h2 class="modal__title" id="resultTitle">초콜릿 보너스 당첨!</h2>
-      <p class="modal__desc" id="resultDesc">달콤한 행운이 찾아왔어요 🎉</p>
-      <button class="modal__again" type="button" data-close>다시 도전</button>
-    </div>
-  </div>
-
-  <script>
-    (function () {
-      'use strict';
-
-      const bonusBtn = document.getElementById('bonusBtn');
-      const modal    = document.getElementById('resultModal');
-      const icon     = document.getElementById('resultIcon');
-      const title    = document.getElementById('resultTitle');
-      const desc     = document.getElementById('resultDesc');
-      const canvas   = document.getElementById('confettiCanvas');
-      const ctx      = canvas.getContext('2d');
-      const closers  = modal.querySelectorAll('[data-close]');
-
-      const PRM = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      const COLORS = ['#ff8a5b', '#ffd166', '#06d6a0', '#118ab2', '#ef476f', '#f8c8dc'];
-
-      let pieces = [];
-      let rafId = null;
-      let lastTs = 0;
-
-      /* --------------------------------------------------------
-       * Confetti — 종이 폭죽
-       * -------------------------------------------------------- */
-      function resizeCanvas() {
-        const dpr = window.devicePixelRatio || 1;
-        canvas.width  = canvas.clientWidth  * dpr;
-        canvas.height = canvas.clientHeight * dpr;
-        ctx.setTransform(1, 0, 0, 1, 0, 0);
-        ctx.scale(dpr, dpr);
-      }
-
-      function spawnBurst(x, y, count) {
-        if (PRM) return;
-        for (let i = 0; i < count; i++) {
-          const angle = Math.random() * Math.PI * 2;
-          const speed = 4 + Math.random() * 8;
-          pieces.push({
-            x: x,
-            y: y,
-            vx: Math.cos(angle) * speed,
-            vy: Math.sin(angle) * speed - 4,
-            w: 6 + Math.random() * 6,
-            h: 10 + Math.random() * 8,
-            rot: Math.random() * Math.PI * 2,
-            vr: (Math.random() - 0.5) * 0.4,
-            color: COLORS[(Math.random() * COLORS.length) | 0],
-            life: 0,
-            ttl: 1800 + Math.random() * 1200
-          });
-        }
-      }
-
-      function step(ts) {
-        const dt = lastTs ? Math.min(ts - lastTs, 50) : 16;
-        lastTs = ts;
-
-        ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
-
-        const gravity = 0.18;
-        const drag = 0.992;
-
-        for (let i = pieces.length - 1; i >= 0; i--) {
-          const p = pieces[i];
-          p.life += dt;
-          p.vy += gravity;
-          p.vx *= drag;
-          p.x += p.vx;
-          p.y += p.vy;
-          p.rot += p.vr;
-
-          const alpha = Math.max(0, 1 - p.life / p.ttl);
-          ctx.save();
-          ctx.globalAlpha = alpha;
-          ctx.translate(p.x, p.y);
-          ctx.rotate(p.rot);
-          ctx.fillStyle = p.color;
-          ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
-          ctx.restore();
-
-          if (p.life >= p.ttl || p.y > canvas.clientHeight + 80) {
-            pieces.splice(i, 1);
-          }
-        }
-
-        if (pieces.length > 0) {
-          rafId = requestAnimationFrame(step);
-        } else {
-          rafId = null;
-          lastTs = 0;
-        }
-      }
-
-      function fireConfetti() {
-        if (PRM) return;
-        resizeCanvas();
-        const w = canvas.clientWidth;
-        const h = canvas.clientHeight;
-        spawnBurst(w * 0.2, h * 0.55, 70);
-        spawnBurst(w * 0.8, h * 0.55, 70);
-        spawnBurst(w * 0.5, h * 0.35, 50);
-        if (!rafId) {
-          lastTs = 0;
-          rafId = requestAnimationFrame(step);
-        }
-      }
-
-      /* --------------------------------------------------------
-       * Modal open / close
-       * -------------------------------------------------------- */
-      function openModal(isWin) {
-        modal.hidden = false;
-        modal.classList.remove('modal--win', 'modal--lose');
-        modal.classList.add(isWin ? 'modal--win' : 'modal--lose');
-        document.body.style.overflow = 'hidden';
-
-        if (isWin) {
-          icon.textContent  = '🍫';
-          title.textContent = '초콜릿 보너스 당첨!';
-          desc.textContent  = '달콤한 행운이 찾아왔어요 🎉';
-        } else {
-          icon.textContent  = '🍀';
-          title.textContent = '다음 기회에..';
-          desc.textContent  = '좋은 하루 되세요 🙂';
-        }
-
-        requestAnimationFrame(() => {
-          if (isWin) fireConfetti();
-          else {
-            /* 꽝일 땐 약하게 한 줌만 — 또는 생략 */
-            resizeCanvas();
-            spawnBurst(canvas.clientWidth * 0.5, canvas.clientHeight * 0.45, 20);
-            if (!rafId) { lastTs = 0; rafId = requestAnimationFrame(step); }
-          }
-        });
-      }
-
-      function closeModal() {
-        modal.hidden = true;
-        document.body.style.overflow = '';
-        pieces = [];
-        if (rafId) {
-          cancelAnimationFrame(rafId);
-          rafId = null;
-        }
-        ctx.clearRect(0, 0, canvas.clientWidth, canvas.clientHeight);
-      }
-
-      /* --------------------------------------------------------
-       * 50/50 추첨
-       * -------------------------------------------------------- */
-      bonusBtn.addEventListener('click', () => {
-        const win = Math.random() < 0.5;
-        openModal(win);
-      });
-
-      closers.forEach(el => el.addEventListener('click', closeModal));
-      document.addEventListener('keydown', (e) => {
-        if (!modal.hidden && e.key === 'Escape') closeModal();
-      });
-      window.addEventListener('resize', () => {
-        if (!modal.hidden) resizeCanvas();
-      });
-    })();
-  </script>
+  <script src="scripts/layout.js" defer></script>
+  <script src="scripts/water-ripple.js" defer></script>
+  <script src="scripts/reveal.js" defer></script>
+  <script src="scripts/main.js" defer></script>
 </body>
 </html>
